@@ -1,10 +1,11 @@
 import Container from "../Container";
+import Banner from "./Banner";
 
 const Header = () => {
   return (
     <div className="bg-[#020228] min-h-screen w-full text-white">
       <Container>
-        <h2 className="">Header Component Coming Soon</h2>
+        <Banner/>
       </Container>
     </div>
   );
