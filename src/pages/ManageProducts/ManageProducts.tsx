@@ -37,6 +37,7 @@ import {
   useGetAllProductsQuery,
 } from "@/redux/features/product/productApi";
 import { useState } from "react";
+import CreateProduct from "./CreateProduct";
 
 // product type
 export type Product = {
@@ -187,7 +188,7 @@ const ManageProducts = () => {
       columnVisibility,
       rowSelection,
     },
-    initialState: { pagination: { pageSize: 5 } }, // Display only 5 rows per page
+    initialState: { pagination: { pageSize: 6 } }, // Display only 6 rows per page
   });
 
   if (isLoading) {
@@ -223,6 +224,7 @@ const ManageProducts = () => {
               }
               className="max-w-sm bg-[#02022D] text-white"
             />
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="ml-auto bg-[#02022D]">
@@ -252,6 +254,11 @@ const ManageProducts = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+
+            {/* create product modal */}
+            <div>
+              <CreateProduct />
+            </div>
           </div>
           <div className="rounded-md border">
             <Table>
