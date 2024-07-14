@@ -12,7 +12,6 @@ import {
 } from "@tanstack/react-table";
 import { ArrowUpDown, ChevronDown } from "lucide-react";
 import { AiFillDelete } from "react-icons/ai";
-import { FaRegEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 import Container from "@/components/Container";
@@ -38,6 +37,7 @@ import {
 } from "@/redux/features/product/productApi";
 import { useState } from "react";
 import CreateProduct from "./CreateProduct";
+import UpdateProduct from "./UpdateProduct";
 
 // product type
 export type Product = {
@@ -163,8 +163,9 @@ const ManageProducts = () => {
           <Button
             variant="ghost"
             onClick={() => handleUpdate(row.original._id)}
+            className=" "
           >
-            <FaRegEdit size={26} color="#5969FF" />
+            <UpdateProduct id={row.original._id} />
           </Button>
         </div>
       ),
