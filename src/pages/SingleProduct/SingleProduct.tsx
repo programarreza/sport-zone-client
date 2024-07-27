@@ -7,6 +7,7 @@ import Rating from "react-rating";
 import { useParams } from "react-router-dom";
 
 const SingleProduct = () => {
+  
   const { id } = useParams();
   const { data, isLoading, error } = useGetSingleProductQuery(id);
   const product = data?.data;
