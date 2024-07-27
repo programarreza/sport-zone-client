@@ -1,20 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Container from "@/components/Container";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
-import { FaBangladeshiTakaSign, FaStar, FaRegStar } from "react-icons/fa6";
+import { FaBangladeshiTakaSign, FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const Products = () => {
   const { data, isLoading, error } = useGetAllProductsQuery(undefined);
-
-  console.log(data?.data);
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -38,7 +31,7 @@ const Products = () => {
                           />
                         </div>
                         <h2 className="font-semibold">{product.name}</h2>
-                        {/* <h3 className="font-semibold">{product?.brand}</h3> */}
+
                         <CardDescription>
                           {product.description.length > 30
                             ? `${product.description.substring(0, 30)}...`

@@ -10,7 +10,7 @@ import {
 import { useAddProductMutation } from "@/redux/features/product/productApi";
 import { imageUpload } from "@/utils/utils";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 const CreateProduct = () => {
@@ -23,7 +23,7 @@ const CreateProduct = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const toastId = toast.loading("Please wait", { position: "top-center" });
 
     try {

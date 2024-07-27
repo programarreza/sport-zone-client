@@ -13,7 +13,7 @@ import {
 } from "@/redux/features/product/productApi";
 import { imageUpload } from "@/utils/utils";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { FaRegEdit } from "react-icons/fa";
 import { toast } from "sonner";
 
@@ -36,7 +36,7 @@ const UpdateProduct = ({ id }: { id: string }) => {
     }
   }, [isSuccess]);
 
-  const onSubmit = async (formData: any) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (formData) => {
     const toastId = toast.loading("Please wait", { position: "top-center" });
 
     try {
