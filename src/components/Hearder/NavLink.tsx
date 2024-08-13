@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { IoCartOutline } from "react-icons/io5";
 
 const NavbarLinks = () => {
   return (
@@ -13,7 +14,7 @@ const NavbarLinks = () => {
             : "hover:text-[#f57c48]"
         }
       >
-       Home
+        Home
       </NavLink>
       <NavLink
         to="/products"
@@ -40,18 +41,6 @@ const NavbarLinks = () => {
         Manage Products
       </NavLink>
       <NavLink
-        to="/cart"
-        className={({ isActive, isPending }) =>
-          isPending
-            ? "pending"
-            : isActive
-            ? "text-[#f57c48] "
-            : "hover:text-[#f57c48]"
-        }
-      >
-        Cart
-      </NavLink>
-      <NavLink
         to="/about-us"
         className={({ isActive, isPending }) =>
           isPending
@@ -62,6 +51,18 @@ const NavbarLinks = () => {
         }
       >
         About Us
+      </NavLink>
+      <NavLink
+        to="/cart"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+            ? "text-[#f57c48] "
+            : "hover:text-[#f57c48]"
+        }
+      >
+        <IoCartOutline size={30} />
       </NavLink>
     </div>
   );

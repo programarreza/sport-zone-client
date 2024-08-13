@@ -3,8 +3,8 @@ import { baseApi } from "@/redux/api/baseApi";
 const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query: () => ({
-        url: "products",
+      query: (name) => ({
+        url: `products?name=${name}`,
         method: "GET",
       }),
       providesTags: ["product"],
@@ -12,7 +12,7 @@ const productApi = baseApi.injectEndpoints({
 
     getSingleProduct: builder.query({
       query: (id) => {
-        console.log("from redux", id)
+        console.log("from redux", id);
         return {
           url: `products/${id}`,
           method: "GET",

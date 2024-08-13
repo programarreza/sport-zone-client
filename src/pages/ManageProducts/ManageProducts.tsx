@@ -64,7 +64,7 @@ const categories = [
 ];
 
 const ManageProducts = () => {
-  const { data, isLoading, error } = useGetAllProductsQuery(undefined);
+  const { data, isLoading, error } = useGetAllProductsQuery("");
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});

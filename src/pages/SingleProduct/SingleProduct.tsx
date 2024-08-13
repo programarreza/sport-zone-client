@@ -41,7 +41,7 @@ const SingleProduct = () => {
               <span className="text-gray-500">Brand:</span> {product?.brand}
             </h3>
             <h3>
-              <span className="text-gray-500">Category:</span>
+              <span className="text-gray-500">Category: </span>
               {product?.category}
             </h3>
             <h3>
