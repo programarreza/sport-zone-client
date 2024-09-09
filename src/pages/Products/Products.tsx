@@ -3,6 +3,7 @@ import Container from "@/components/Container";
 import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
+import { TProduct } from "@/types";
 import { useState } from "react";
 import { FaBangladeshiTakaSign, FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
@@ -39,8 +40,8 @@ const Products = () => {
               Product not available.
             </p>
           ) : (
-            data?.data?.map((product) => (
-              <div key={product.id}>
+            data?.data?.map((product: TProduct) => (
+              <div key={product._id}>
                 <Link to={`/single-product/${product?._id}`}>
                   <Card className="bg-[#02022d] text-white">
                     <CardContent>

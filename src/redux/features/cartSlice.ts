@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { TProduct } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -10,14 +11,13 @@ const initialState = {
   grandTotal: 0,
 };
 
-
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     addToCart: (state: any, action: any) => {
       const isExist = state.products.find(
-        (product: any) => product._id === action.payload._id
+        (product: TProduct) => product._id === action.payload._id
       );
       if (!isExist) {
         state.products.push({ ...action.payload, quantity: 1 });
@@ -28,9 +28,10 @@ const cartSlice = createSlice({
       state.tax = selectTax(state);
       state.grandTotal = selectGrandTotal(state);
     },
+
     updateQuantity: (state: any, action) => {
-      const products = state.products.map((product: any) => {
-        if (product._id === action.payload._id) {
+      const products = state.products.map((product: TProduct) => {
+        if (product._id === action.payload.id) {
           if (action.payload.type === "increment") {
             product.quantity += 1;
           } else if (action.payload.type === "decrement") {
@@ -39,7 +40,9 @@ const cartSlice = createSlice({
         }
         return product;
       });
-      state.products = products.filter((product: any) => product.quantity > 0);
+      state.products = products.filter(
+        (product: TProduct) => product.quantity > 0
+      );
 
       state.selectedItems = selectSelectedItems(state);
       state.totalPrice = selectTotalPrice(state);
@@ -48,7 +51,7 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       state.products = state.products.filter(
-        (product : any) => product._id !== action.payload.id
+        (product: any) => product._id !== action.payload.id
       );
       state.selectedItems = selectSelectedItems(state);
       state.totalPrice = selectTotalPrice(state);

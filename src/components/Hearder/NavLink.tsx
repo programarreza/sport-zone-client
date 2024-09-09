@@ -1,7 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { useAppSelector } from "@/redux/hooks";
 import { IoCartOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 const NavbarLinks = () => {
+  const { selectedItems } = useAppSelector((store) => store.cart);
+
   return (
     <div className="flex gap-8 ">
       <NavLink
@@ -74,7 +77,12 @@ const NavbarLinks = () => {
             : "hover:text-[#f57c48]"
         }
       >
-        <IoCartOutline size={30} />
+        <div className="relative">
+          <IoCartOutline size={30} />
+          <span className="rounded-full absolute top-[-6px] left-[18px] bg-white text-black text-center size-4 font-bold flex items-center justify-center">
+            {selectedItems}
+          </span>
+        </div>
       </NavLink>
     </div>
   );
