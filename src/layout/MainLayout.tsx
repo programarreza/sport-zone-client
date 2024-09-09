@@ -5,9 +5,11 @@ import { Outlet } from "react-router-dom";
 const MainLayout = () => {
   return (
     <div>
-      <Navbar/>
-      <Outlet />
-      <Footer/>
+      <Navbar />
+      <div className="min-h-screen">
+        <Outlet />
+      </div>
+      <Footer />
     </div>
   );
 };

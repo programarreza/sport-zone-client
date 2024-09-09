@@ -1,16 +1,24 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
+import { addToCart } from "@/redux/features/cartSlice";
 import { useGetSingleProductQuery } from "@/redux/features/product/productApi";
+import { useAppDispatch } from "@/redux/hooks";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import Rating from "react-rating";
 import { useParams } from "react-router-dom";
 
 const SingleProduct = () => {
-  
+  const dispatch = useAppDispatch();
+
   const { id } = useParams();
-  const { data, isLoading, error } = useGetSingleProductQuery(id);
+  const { data } = useGetSingleProductQuery(id);
   const product = data?.data;
+
+  const handleAddToCart = (product: any) => {
+    dispatch(addToCart(product));
+  };
 
   return (
     <div className="bg-[#020228] text-white min-h-screen">
@@ -54,7 +62,15 @@ const SingleProduct = () => {
               </span>
               <p>{product?.price}</p>
             </div>
-            <Button className="">Add To Cart</Button>
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleAddToCart(product);
+              }}
+              className="bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-800 hover:text-white transition duration-300 shadow-md hover:shadow-lg"
+            >
+              Add to Cart
+            </Button>
           </div>
         </div>
       </Container>
