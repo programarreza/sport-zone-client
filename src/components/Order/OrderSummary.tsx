@@ -71,7 +71,6 @@ const OrderSummary = () => {
           className="bg-black px-3 py-2 text-white  mt-2 rounded-md w-full  flex justify-center items-center"
         >
           <span>Proceed Checkout</span>
-          {/* <CreditCard className="inline" width={15} height={15} /> */}
         </button>
       </div>
     </div>
