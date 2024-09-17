@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-
+import { ImSpinner6 } from "react-icons/im";
 import logo1 from "@/assets/images/logo1.png";
 import logo2 from "@/assets/images/logo2.jpg";
 import logo3 from "@/assets/images/logo3.png";
@@ -12,12 +12,20 @@ import logo5 from "@/assets/images/logo5.png";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { useAddOrderMutation } from "@/redux/features/order/orderApi";
+import { useEffect } from "react";
+import { clearCart } from "@/redux/features/cartSlice";
 
 const Checkout = () => {
+  const [createOrder, { isSuccess, isLoading, data: orderData }] =
+    useAddOrderMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { tax, taxRate, grandTotal, totalPrice, selectedItems } =
+  const { tax, taxRate, grandTotal, totalPrice, selectedItems, products } =
     useAppSelector((store) => store.cart);
+
+  console.log(24, orderData);
 
   const {
     register,
@@ -32,27 +40,29 @@ const Checkout = () => {
     address: "nalchity, jhalakathi",
   };
 
+  // Handle form submission
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    try {
-      // Example data to be submitted
-      const orderData = {
-        customerInfo: data, // form data like name, email, etc.
-        items: selectedItems, // order details
-        totalPrice,
-        tax,
-        grandTotal,
-        paymentMethod: "Cash on delivery", // this can be dynamically fetched if there are multiple options
-      };
+    const orderData = {
+      customerInfo: data,
+      items: selectedItems,
+      totalPrice,
+      tax,
+      grandTotal,
+      products,
+      paymentMethod: "Cash on delivery",
+    };
 
-      // Dispatch action or make API request here
-      console.log("Order Data:", orderData);
-
-      // Navigate to order success page after submission
-      navigate("/payment-success");
-    } catch (error) {
-      console.log(error);
-    }
+    await createOrder(orderData);
   };
+
+  // Handle success toast and navigation
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Order Created Successfully!", { duration: 2000 });
+      navigate("/payment-success");
+      dispatch(clearCart());
+    }
+  }, [dispatch, isSuccess, navigate]);
 
   return (
     <div className="flex justify-center items-center ">
@@ -235,7 +245,14 @@ const Checkout = () => {
                               type="submit"
                               className="bg-black px-3 py-2 text-white mt-2 rounded-md w-full flex justify-center items-center"
                             >
-                              <span>Place Order</span>
+                              {isLoading ? (
+                                <ImSpinner6
+                                  size={28}
+                                  className="animate-spin m-auto"
+                                />
+                              ) : (
+                                <span>Place Order</span>
+                              )}
                             </button>
                           </div>
                         </div>

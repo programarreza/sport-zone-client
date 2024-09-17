@@ -56,18 +56,6 @@ const NavbarLinks = () => {
         About Us
       </NavLink>
       <NavLink
-        to="/contact-us"
-        className={({ isActive, isPending }) =>
-          isPending
-            ? "pending"
-            : isActive
-            ? "text-[#f57c48] "
-            : "hover:text-[#f57c48]"
-        }
-      >
-        Contact Us
-      </NavLink>
-      <NavLink
         to="/cart"
         className={({ isActive, isPending }) =>
           isPending

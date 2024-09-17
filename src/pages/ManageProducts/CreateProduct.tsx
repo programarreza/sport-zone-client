@@ -153,7 +153,6 @@ const CreateProduct = () => {
               {/* description */}
               <div className="form-control mt-3">
                 <textarea
-                  type="text"
                   {...register("description", { required: true })}
                   placeholder="Description"
                   className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
