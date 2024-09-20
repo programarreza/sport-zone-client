@@ -1,31 +1,27 @@
-import Container from "@/components/Container";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { ImSpinner6 } from "react-icons/im";
 import logo1 from "@/assets/images/logo1.png";
 import logo2 from "@/assets/images/logo2.jpg";
 import logo3 from "@/assets/images/logo3.png";
 import logo4 from "@/assets/images/logo4.png";
 import logo5 from "@/assets/images/logo5.png";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { FaBangladeshiTakaSign } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
-import { useAddOrderMutation } from "@/redux/features/order/orderApi";
-import { useEffect } from "react";
+import Container from "@/components/Container";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { clearCart } from "@/redux/features/cartSlice";
+import { useAddOrderMutation } from "@/redux/features/order/orderApi";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useEffect } from "react";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import { ImSpinner6 } from "react-icons/im";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-  const [createOrder, { isSuccess, isLoading, data: orderData }] =
-    useAddOrderMutation();
+  const [createOrder, { isSuccess, isLoading }] = useAddOrderMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { tax, taxRate, grandTotal, totalPrice, selectedItems, products } =
     useAppSelector((store) => store.cart);
-
-  console.log(24, orderData);
 
   const {
     register,
@@ -58,7 +54,7 @@ const Checkout = () => {
   // Handle success toast and navigation
   useEffect(() => {
     if (isSuccess) {
-      toast.success("Order Created Successfully!", { duration: 2000 });
+      // toast.success("Order Created Successfully!", { duration: 2000 });
       navigate("/payment-success");
       dispatch(clearCart());
     }
