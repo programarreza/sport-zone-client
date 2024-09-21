@@ -29,19 +29,23 @@ const Banner = () => {
                     {index === 1 ? (
                       <img
                         className="w-full h-full"
-                        src="https://i.postimg.cc/mkm5HXTG/dark-lenovo-blue-logo-wallpaper-preview.jpg"
+                        src=" https://cdn.dribbble.com/users/3226801/screenshots/16671384/media/94cb2dc3903e83f2222e0599e97ca592.jpg"
                         alt=""
                       />
                     ) : index === 2 ? (
                       <img
                         className="w-full h-full"
-                        src="https://i.postimg.cc/XvZ1LQ1k/Xiaomi-Logo-Branding-2021.webp"
+                        src="
+                        https://img.pikbest.com/origin/06/39/82/47ppIkbEsT7dJ.jpg!bwr800
+                        "
                         alt=""
                       />
                     ) : (
                       <img
                         className="w-full h-full"
-                        src="https://i.postimg.cc/D0v7SSnD/dopely-google-logo-958x575.jpg"
+                        src="
+                      https://i.pinimg.com/originals/a8/72/ed/a872ede45154798639d642e1bb1bf6d0.jpg
+                      "
                         alt=""
                       />
                     )}
