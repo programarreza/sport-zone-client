@@ -31,7 +31,7 @@ const OurTeam = () => {
               <div className="absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[95%]  group-hover:translate-y-0 translate-all duration-500 ">
                 <div className=" ">
                   <h2 className="text-3xl font-semibold">Fayjul Islam</h2>
-                  <h3 className="uppercase">founder</h3>
+                  <h3 className="uppercase">COO (Chief Operating Officer) </h3>
                 </div>
 
                 <div className="flex gap-6 mt-4">
@@ -70,7 +70,7 @@ const OurTeam = () => {
               <div className="absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[95%]  group-hover:translate-y-0 translate-all duration-500 ">
                 <div className=" ">
                   <h2 className="text-3xl font-semibold">Rakib Hossen</h2>
-                  <h3 className="uppercase">Web Developer</h3>
+                  <h3 className="uppercase">Product Manager</h3>
                 </div>
 
                 <div className="flex gap-6 mt-4">
@@ -109,7 +109,7 @@ const OurTeam = () => {
               <div className="absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[95%]  group-hover:translate-y-0 translate-all duration-500 ">
                 <div className=" ">
                   <h2 className="text-3xl font-semibold">md reza</h2>
-                  <h3 className="uppercase">Software Engineer</h3>
+                  <h3 className="uppercase">Customer Support Manager</h3>
                 </div>
 
                 <div className="flex gap-6 mt-4">

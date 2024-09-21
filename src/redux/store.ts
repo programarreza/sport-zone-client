@@ -22,8 +22,6 @@ const persistConfig = {
 
 const persistedCartReducer = persistReducer(persistConfig, cartReducer);
 
-console.log(persistedCartReducer)
-
 const store = configureStore({
   reducer: {
     cart: persistedCartReducer,  // Persisted cart reducer

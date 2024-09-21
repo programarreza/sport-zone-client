@@ -11,7 +11,10 @@ import { Link } from "react-router-dom";
 
 const Products = () => {
   const [searchValue, setSearchValue] = useState("");
-  const { data, isLoading, error } = useGetAllProductsQuery(searchValue);
+  const { data, isLoading, error } = useGetAllProductsQuery([
+    { name: "sort", value: "-createdAt" },
+    { name: "searchTerm", value: searchValue },
+  ]);
 
   if (isLoading) return <p>Loading...</p>;
 
