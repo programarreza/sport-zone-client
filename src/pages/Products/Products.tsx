@@ -65,6 +65,11 @@ const Products = () => {
                               : product.description}
                           </CardDescription>
 
+                          <h3 className="  flex  items-center gap-1">
+                            <span className="text-sm">Stock Quantity:</span>
+                            <span>{product.stockQuantity}</span>
+                          </h3>
+
                           <h3 className=" font-semibold flex  items-center gap-1">
                             <FaBangladeshiTakaSign />
                             <span>{product.price}</span>
