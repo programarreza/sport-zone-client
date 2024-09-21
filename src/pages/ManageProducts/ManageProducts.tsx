@@ -38,6 +38,7 @@ import {
 import { useState } from "react";
 import CreateProduct from "./CreateProduct";
 import UpdateProduct from "./UpdateProduct";
+import Loading from "@/components/Loading/Loading";
 
 // product type
 export type Product = {
@@ -56,11 +57,14 @@ export type Product = {
 };
 
 const categories = [
-  "hiking boots",
-  "basketball",
-  "tennis",
-  "bags & backpacks",
   "football",
+  "basketball",
+  "baseball",
+  "protectiveGear",
+  "surfing",
+  "badminton",
+  "tennis",
+  "helmets",
 ];
 
 const ManageProducts = () => {
@@ -192,17 +196,7 @@ const ManageProducts = () => {
     initialState: { pagination: { pageSize: 6 } }, // Display only 6 rows per page
   });
 
-  if (isLoading) {
-    return (
-      <div className="w-full min-h-screen bg-[#02022D]">
-        <p className="flex justify-center items-center text-white text-3xl ">
-          Loading...
-        </p>
-      </div>
-    );
-  }
   if (error) {
-    // Render specific properties of the error object
     const errorMessage =
       "status" in error
         ? `Error ${error.status}: ${JSON.stringify(error.data)}`
@@ -213,6 +207,7 @@ const ManageProducts = () => {
   return (
     <div className="bg-[#020228] text-white min-h-screen">
       <Container>
+        {isLoading && <Loading />}
         <div className="w-full">
           <div className="flex items-center py-4">
             <Input

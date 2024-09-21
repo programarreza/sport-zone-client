@@ -10,7 +10,7 @@ const Cart = () => {
   const products = useAppSelector((store) => store?.cart?.products);
 
   return (
-    <div>
+    <div className="bg-[#020228] text-white min-h-screen">
       <Container>
         {products?.length ? (
           <div className="flex lg:flex-row flex-col-reverse  justify-between">
@@ -25,8 +25,8 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          <div className="h-screen  flex flex-col justify-center items-center gap-4 ">
-            <h2>There are no items in this cart</h2>
+          <div className="h-screen bg-[#020228] flex flex-col justify-center items-center gap-4 ">
+            <h2 className="text-white">There are no items in this cart</h2>
             <Link to={"/products"}>
               <Button>Continue shopping</Button>
             </Link>

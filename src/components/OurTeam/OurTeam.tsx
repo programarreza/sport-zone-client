@@ -8,10 +8,10 @@ const OurTeam = () => {
   return (
     <div>
       <div
-        className="px-4 md:px-6 lg:px-12 xl:px-24 min-h-screen text-white"
+        className="px-4 md:px-6 lg:px-12 xl:px-24 min-h-screen text-white pb-24"
         id="projects"
       >
-        <h2 className="mb-12 pb-5 text-black text-3xl md:text-4xl text-center pt-12 md:pt-24  border-b-2 border-[#f57c48] w-fit mx-auto font-semibold">
+        <h2 className="mb-12 pb-5 text-3xl md:text-4xl text-center pt-12 md:pt-24  border-b-2 border-[#f57c48] w-fit mx-auto font-semibold">
           Our Team
         </h2>
 

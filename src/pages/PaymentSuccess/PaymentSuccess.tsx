@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const PaymentSuccess = () => {
   return (
-    <div className="pt-24 flex justify-center items-center min-h-[calc(100%-65px)]">
+    <div className=" min-h-[calc(100vh-65px)] bg-[#020228] text-white">
       <Container>
-        <div>
+        <div className="min-h-screen flex justify-center items-center flex-col">
           <div className="flex justify-center items-center flex-col">
             <div className="border-4 border-[#4BB543] p-4 flex justify-center items-center rounded-full">
               <MdOutlineDone color="#4BB543" size={40} />
