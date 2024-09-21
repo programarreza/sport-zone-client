@@ -7,14 +7,24 @@ import { TProduct } from "@/types";
 import { useState } from "react";
 import { FaBangladeshiTakaSign, FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Products = () => {
+  const { categoryName } = useParams(); // Fetch category from URL params
   const [searchValue, setSearchValue] = useState("");
-  const { data, isLoading, error } = useGetAllProductsQuery([
+
+  const queryParams = [
     { name: "sort", value: "-createdAt" },
     { name: "searchTerm", value: searchValue },
-  ]);
+  ];
+
+  if (categoryName) {
+    queryParams.push({ name: "category", value: categoryName });
+  }
+
+  const { data, isLoading, error } = useGetAllProductsQuery(queryParams);
+
+  console.log(data?.data);
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -57,7 +67,9 @@ const Products = () => {
                               alt=""
                             />
                           </div>
-                          <h2 className="font-semibold">{product.name}</h2>
+                          <h2 className="font-semibold">{product.name.length > 27
+                              ? `${product.name.substring(0, 27)}...`
+                              : product.name}</h2>
 
                           <CardDescription>
                             {product.description.length > 30

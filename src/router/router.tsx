@@ -24,9 +24,14 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "products",
+        path: "products", // Add this route to handle /products
+        element: <Products />, // Show all products here
+      },
+      {
+        path: "products/:categoryName",
         element: <Products />,
       },
+      
       {
         path: "manage-products",
         element: <ManageProducts />,

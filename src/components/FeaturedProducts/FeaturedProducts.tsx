@@ -30,7 +30,7 @@ const FeaturedProducts = () => {
           Latest products
         </h2>
 
-        <div className="grid grid-cols-4 gap-6 pt-4">
+        <div className="grid grid-cols-4 gap-4 pt-4">
           {data?.data?.length === 0 ? (
             <p className="col-span-4 text-center text-white">
               Product not available.
@@ -49,7 +49,11 @@ const FeaturedProducts = () => {
                             alt=""
                           />
                         </div>
-                        <h2 className="font-semibold">{product.name}</h2>
+                        <h2 className="font-semibold">
+                          {product.name.length > 27
+                            ? `${product.name.substring(0, 27)}...`
+                            : product.name}
+                        </h2>
 
                         <CardDescription>
                           {product.description.length > 30
