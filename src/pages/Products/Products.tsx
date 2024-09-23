@@ -57,7 +57,7 @@ const Products = () => {
         {isLoading && <Loading />}
         <div>
           <div className="flex justify-between items-center ">
-            <div className="w-96 py-4">
+            <div className="w-96 py-4 hidden md:flex items-center">
               <Input
                 onChange={(e) => setSearchValue(e.target.value)}
                 type="email"
@@ -66,7 +66,7 @@ const Products = () => {
               />
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap md:flex-nowrap">
               {/* category filter */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>

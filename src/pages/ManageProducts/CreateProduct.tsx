@@ -9,12 +9,13 @@ import {
 } from "@/components/ui/dialog";
 import { useAddProductMutation } from "@/redux/features/product/productApi";
 import { categories, imageUpload } from "@/utils/utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { ImSpinner6 } from "react-icons/im";
 import { toast } from "sonner";
 
 const CreateProduct = () => {
-  const [addProduct, { isSuccess }] = useAddProductMutation();
+  const [addProduct, { isSuccess, data, isLoading }] = useAddProductMutation();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const {
@@ -23,41 +24,40 @@ const CreateProduct = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    const toastId = toast.loading("Please wait", { position: "top-center" });
-
+  const onSubmit: SubmitHandler<FieldValues> = async (formData) => {
     try {
-      const image = data.image[0];
+      const image = formData.image[0];
       const imageData = await imageUpload(image);
 
       const productData = {
-        name: data.name,
-        category: data.category,
-        stockQuantity: parseInt(data.quantity, 10),
-        brand: data.brand,
-        description: data.description,
-        price: parseFloat(data.price),
+        name: formData.name,
+        category: formData.category,
+        stockQuantity: parseInt(formData.quantity, 10),
+        brand: formData.brand,
+        description: formData.description,
+        price: parseFloat(formData.price),
         image: imageData?.data?.display_url,
       };
 
       await addProduct(productData);
-      if (isSuccess) {
-        setIsDialogOpen(false); // Close the modal
-        toast.success("Product Created Successfully ", {
-          id: toastId,
-          duration: 2000,
-          position: "top-center",
-        });
-      }
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong", {
-        id: toastId,
         duration: 2000,
         position: "top-center",
       });
     }
   };
+
+  useEffect(() => {
+    if (isSuccess && data?.success) {
+      setIsDialogOpen(false); // Close the modal
+      toast.success("Product Created Successfully", {
+        duration: 2000,
+        position: "top-center",
+      });
+    }
+  }, [isSuccess, data]);
 
   return (
     <div className="ml-12">
@@ -187,7 +187,11 @@ const CreateProduct = () => {
                   type="submit"
                   className="py-2 px-4 rounded-md opacity-90 hover:opacity-100  bg-[#5969FF] text-white"
                 >
-                  Submit
+                  {isLoading ? (
+                    <ImSpinner6 size={28} className="animate-spin m-auto" />
+                  ) : (
+                    "Submit"
+                  )}
                 </button>
               </div>
             </form>

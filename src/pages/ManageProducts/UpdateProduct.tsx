@@ -176,7 +176,6 @@ const UpdateProduct = ({ id }: { id: string }) => {
                 <div className="form-control mt-3">
                   <textarea
                     defaultValue={singleProduct?.description}
-                    type="text"
                     {...register("description", { required: true })}
                     placeholder="Description"
                     className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
