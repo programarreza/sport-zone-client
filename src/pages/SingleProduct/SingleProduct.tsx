@@ -57,9 +57,13 @@ const SingleProduct = () => {
                 <span className="text-gray-500">Category: </span>
                 {product?.category}
               </h3>
-              <h3>
-                <span className="text-gray-500">Stock Quantity:</span>{" "}
-                {product?.stockQuantity}
+              <h3 className="flex gap-2">
+                <span className="text-gray-500">Stock Quantity:</span>
+                {product?.stockQuantity > 0 ? (
+                  product?.stockQuantity
+                ) : (
+                  <p className="text-red-500">out of stock</p>
+                )}
               </h3>
               <div className="flex items-center text-3xl font-semibold">
                 <span>
@@ -67,15 +71,24 @@ const SingleProduct = () => {
                 </span>
                 <p>{product?.price}</p>
               </div>
-              <Button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleAddToCart(product);
-                }}
-                className="bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-800 hover:text-white transition duration-300 shadow-md hover:shadow-lg"
-              >
-                Add to Cart
-              </Button>
+              {product?.stockQuantity > 0 ? (
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleAddToCart(product);
+                  }}
+                  className="bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-800 hover:text-white transition duration-300 shadow-md hover:shadow-lg"
+                >
+                  Add to Cart
+                </Button>
+              ) : (
+                <Button
+                  disabled
+                  className="bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-800 hover:text-white transition duration-300 shadow-md hover:shadow-lg"
+                >
+                  Add to Cart
+                </Button>
+              )}
             </div>
           </div>
         </div>

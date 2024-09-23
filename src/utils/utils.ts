@@ -11,3 +11,29 @@ export const imageUpload = async (image: string | Blob) => {
   );
   return data;
 };
+
+export const categories = [
+  "football",
+  "basketball",
+  "baseball",
+  "protectiveGear",
+  "surfing",
+  "badminton",
+  "tennis",
+  "helmets",
+  "others",
+];
+
+export const brands = [
+  "Adidas",
+  "Nike",
+  "Wilson",
+  "Under Armour",
+  "Quiksilver",
+  "Yonex",
+  "Bell",
+  "Spalding",
+  "Mikasa",
+];
+
+export const priceSort = ["High to low", "Low to high"];

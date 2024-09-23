@@ -7,8 +7,8 @@ const productApi = baseApi.injectEndpoints({
         const params = new URLSearchParams();
 
         if (args) {
-          args.forEach((item) => {
-            params.append(item.name, item.value as string);
+          args.forEach((item: { name: string; value: string }) => {
+            params.append(item.name, item.value);
           });
         }
 

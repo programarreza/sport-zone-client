@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useAddProductMutation } from "@/redux/features/product/productApi";
-import { imageUpload } from "@/utils/utils";
+import { categories, imageUpload } from "@/utils/utils";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -114,11 +114,9 @@ const CreateProduct = () => {
                   <option disabled selected>
                     product category
                   </option>
-                  <option value="hiking boots">hiking boots</option>
-                  <option value="basketball">basketball</option>
-                  <option value="tennis">tennis</option>
-                  <option value="bags & backpacks">bags & backpacks</option>
-                  <option value="football">football</option>
+                  {categories?.map((category) => (
+                    <option value={category}>{category}</option>
+                  ))}
                 </select>
               </div>
 

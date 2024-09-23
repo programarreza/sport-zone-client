@@ -10,9 +10,12 @@ import { Button } from "../ui/button";
 import Loading from "../Loading/Loading";
 
 const FeaturedProducts = () => {
-  const { data, isLoading, error } = useGetAllProductsQuery([
-    { name: "sort", value: "-createdAt" },
-  ]);
+  const { data, isLoading, error } = useGetAllProductsQuery(
+    [{ name: "sort", value: "-createdAt" }],
+    {
+      pollingInterval: 30000, // 30 seconds
+    }
+  );
 
   if (error) {
     const errorMessage =
@@ -64,7 +67,13 @@ const FeaturedProducts = () => {
 
                           <h3 className="  flex  items-center gap-1">
                             <span className="text-sm">Stock Quantity:</span>
-                            <span>{product.stockQuantity}</span>
+                            <span>
+                              {product?.stockQuantity > 0 ? (
+                                product?.stockQuantity
+                              ) : (
+                                <p className="text-red-500">out of stock</p>
+                              )}
+                            </span>
                           </h3>
                           <h3 className=" font-semibold flex  items-center gap-1">
                             <FaBangladeshiTakaSign />

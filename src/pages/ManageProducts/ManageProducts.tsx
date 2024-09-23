@@ -40,17 +40,7 @@ import { TProduct } from "@/types";
 import { useState } from "react";
 import CreateProduct from "./CreateProduct";
 import UpdateProduct from "./UpdateProduct";
-
-const categories = [
-  "football",
-  "basketball",
-  "baseball",
-  "protectiveGear",
-  "surfing",
-  "badminton",
-  "tennis",
-  "helmets",
-];
+import { categories } from "@/utils/utils";
 
 const ManageProducts = () => {
   const { data, isLoading, error } = useGetAllProductsQuery("");
