@@ -42,21 +42,21 @@ const OrderSummary = () => {
             <td className="text-dark">Total Price:</td>
             <td className="text-dark text-right font-semibold flex items-center justify-end">
               <FaBangladeshiTakaSign />
-              {totalPrice.toFixed(2)}
+              {totalPrice?.toFixed(2)}
             </td>
           </tr>
           <tr>
             <td className="text-dark">Tax ({taxRate * 100}%):</td>
             <td className="text-dark text-right font-semibold flex items-center justify-end">
               <FaBangladeshiTakaSign />
-              {tax.toFixed(2)}
+              {tax?.toFixed(2)}
             </td>
           </tr>
           <tr>
             <td className="text-xl font-semibold text-dark pt-4">Total:</td>
             <td className="text-xl font-semibold text-dark mt-2 text-right flex items-center justify-end">
               <FaBangladeshiTakaSign />
-              {grandTotal.toFixed(2)}
+              {grandTotal?.toFixed(2)}
             </td>
           </tr>
         </tbody>
