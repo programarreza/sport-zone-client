@@ -43,9 +43,9 @@ const FeaturedProducts = () => {
                     <CardContent>
                       <div className="grid w-full items-center gap-4 mt-6">
                         <div className="flex flex-col space-y-1.5">
-                          <div className="w-full h-52">
+                          <div className="w-full h-52 group rounded-lg relative items-center justify-center overflow-hidden  hover:shadow-xl hover:shadow-black/30 transition-shadow">
                             <img
-                              className="w-full h-full"
+                              className="w-full h-full object-cover group-hover:rotate-3 group-hover:scale-125 translate-transform duration-500"
                               src={product?.image}
                               alt=""
                             />

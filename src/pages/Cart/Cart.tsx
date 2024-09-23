@@ -13,7 +13,7 @@ const Cart = () => {
     <div className="bg-[#020228] text-white min-h-screen">
       <Container>
         {products?.length ? (
-          <div className="flex lg:flex-row flex-col-reverse  justify-between">
+          <div className="flex gap-6 lg:gap-4 lg:flex-row flex-col-reverse  justify-between">
             <div>
               {products.length &&
                 products.map((product: TProduct) => (

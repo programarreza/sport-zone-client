@@ -37,8 +37,8 @@ const Products = () => {
     <div className="min-h-screen bg-[#020228]">
       <Container>
         <div>
-          {isLoading && <Loading/>}
-          <div className="w-96 mx-auto ">
+          {isLoading && <Loading />}
+          <div className="w-96 mx-auto py-4">
             <Input
               onChange={(e) => setSearchValue(e.target.value)}
               type="email"
@@ -46,7 +46,7 @@ const Products = () => {
               className="mx-auto bg-[#0B0B30] text-white"
             />
           </div>
-          <div className="grid grid-cols-4 gap-6 pt-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4">
             {data?.data?.length === 0 ? (
               <p className="col-span-4 text-center text-white">
                 Product not available.
@@ -59,33 +59,35 @@ const Products = () => {
                       <CardContent>
                         <div className="grid w-full items-center gap-4 mt-6">
                           <div className="flex flex-col space-y-1.5">
-                            <div className="w-full h-52">
+                            <div className="w-full h-52 group rounded-lg relative items-center justify-center overflow-hidden  hover:shadow-xl hover:shadow-black/30 transition-shadow">
                               <img
-                                className="w-full h-full"
+                                className="w-full h-full object-cover group-hover:rotate-3 group-hover:scale-125 translate-transform duration-500"
                                 src={product?.image}
                                 alt=""
                               />
                             </div>
-                            <h2 className="font-semibold">{product.name.length > 27
+                            <h2 className="font-semibold">
+                              {product.name.length > 27
                                 ? `${product.name.substring(0, 27)}...`
-                                : product.name}</h2>
-  
+                                : product.name}
+                            </h2>
+
                             <CardDescription>
                               {product.description.length > 30
                                 ? `${product.description.substring(0, 30)}...`
                                 : product.description}
                             </CardDescription>
-  
+
                             <h3 className="  flex  items-center gap-1">
                               <span className="text-sm">Stock Quantity:</span>
                               <span>{product.stockQuantity}</span>
                             </h3>
-  
+
                             <h3 className=" font-semibold flex  items-center gap-1">
                               <FaBangladeshiTakaSign />
                               <span>{product.price}</span>
                             </h3>
-  
+
                             <div>
                               <Rating
                                 initialRating={product?.rating}

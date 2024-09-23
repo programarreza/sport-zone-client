@@ -9,6 +9,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import Rating from "react-rating";
 import { useParams } from "react-router-dom";
+import { toast } from "sonner";
 
 const SingleProduct = () => {
   const dispatch = useAppDispatch();
@@ -19,14 +20,15 @@ const SingleProduct = () => {
 
   const handleAddToCart = (product: any) => {
     dispatch(addToCart(product));
+    toast.success(" Added to cart successfully!", { duration: 2000 });
   };
 
   return (
-    <div className="bg-[#020228] text-white min-h-screen pt-20">
+    <div className="bg-[#020228] text-white min-h-screen pt-4 md:pt-20">
       <Container>
         <div>
           {isLoading && <Loading />}
-          <div className="flex gap-24">
+          <div className="flex gap-4 lg:gap-12 xl:gap-24 flex-col md:flex-row ">
             {/* product image area */}
             <div className="flex-1">
               <img

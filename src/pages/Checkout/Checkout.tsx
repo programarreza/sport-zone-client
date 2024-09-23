@@ -54,7 +54,6 @@ const Checkout = () => {
   // Handle success toast and navigation
   useEffect(() => {
     if (isSuccess) {
-      // toast.success("Order Created Successfully!", { duration: 2000 });
       navigate("/payment-success");
       dispatch(clearCart());
     }
@@ -74,7 +73,7 @@ const Checkout = () => {
                     <div className=" rounded-md">
                       <form
                         onSubmit={handleSubmit(onSubmit)}
-                        className="space-y-5 pb-5 grid grid-cols-3 gap-4"
+                        className="space-y-5 pb-5 grid lg:grid-cols-2 xl:grid-cols-3 gap-4"
                       >
                         <div className="p-4 space-y-4 mt-5 pt-16 bg-[#0B0B30]">
                           <h2 className="text-center text-xl font-bold pb-0">
@@ -221,8 +220,8 @@ const Checkout = () => {
                         </div>
 
                         {/* order summary */}
-                        <div className="bg-[#0B0B30] py-12">
-                          <div className="lg:w-80 w-full h-full  pl-4 rounded">
+                        <div className="bg-[#0B0B30] py-12 mx-auto w-full">
+                          <div className=" w-full h-full px-4 rounded">
                             <table className="table-auto w-full text-left">
                               <thead>
                                 <tr>

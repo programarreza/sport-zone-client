@@ -29,11 +29,19 @@ const CartDetails = ({ product }: { product: TProduct }) => {
   return (
     <div className="">
       {/* product info */}
-      <div className="flex gap-32 items-center border mb-4 justify-between p-2 shadow-md rounded-md">
-        <div className="flex gap-4">
-          <img className="size-20" src={product?.image} alt="product image" />
+      <div className="flex flex-col md:flex-row lg:gap-6 xl:gap-32 items-center border mb-4 justify-between p-2 shadow-md rounded-md">
+        <div className="flex flex-col md:flex-row gap-4 w-full">
+          <img
+            className="size-full md:size-28"
+            src={product?.image}
+            alt="product image"
+          />
           <div>
-            <h3 className="text-2xl font-semibold">{product?.name}</h3>
+            <h3 className="text-2xl font-semibold">
+              {product.name.length > 25
+                ? `${product.name.substring(0, 25)}...`
+                : product.name}
+            </h3>
             <p>Brand: {product?.brand}</p>
             <p>Category: {product?.category}</p>
             <div>
@@ -46,18 +54,20 @@ const CartDetails = ({ product }: { product: TProduct }) => {
             </div>
           </div>
         </div>
-        <div>
-          <div className="flex items-center gap-2">
-            <FaBangladeshiTakaSign />
-            {product?.price}
+
+        <div className=" flex justify-between items-center gap-44 md:gap-12">
+          <div> 
+            <div className="flex items-center gap-2 mb-2">
+              <FaBangladeshiTakaSign />
+              {product?.price}
+            </div>
+            <button
+              onClick={(e) => handleRemove(e, product._id)}
+              className="bg-red-600 text-white p-1 rounded-full hover:bg-red-700"
+            >
+              <MdDeleteSweep size={20} />
+            </button>
           </div>
-          <button
-            onClick={(e) => handleRemove(e, product._id)}
-            className="bg-red-600 text-white p-1 rounded-full hover:bg-red-700"
-          >
-            <MdDeleteSweep size={20} />
-          </button>
-        </div>
 
         <div>
           <div className="flex items-center space-x-2">
@@ -78,6 +88,8 @@ const CartDetails = ({ product }: { product: TProduct }) => {
             </Button>
           </div>
         </div>
+        </div>
+
       </div>
     </div>
   );

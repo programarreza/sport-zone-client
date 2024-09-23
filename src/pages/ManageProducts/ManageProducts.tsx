@@ -15,6 +15,7 @@ import { AiFillDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
 
 import Container from "@/components/Container";
+import Loading from "@/components/Loading/Loading";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -35,26 +36,10 @@ import {
   useDeleteProductMutation,
   useGetAllProductsQuery,
 } from "@/redux/features/product/productApi";
+import { TProduct } from "@/types";
 import { useState } from "react";
 import CreateProduct from "./CreateProduct";
 import UpdateProduct from "./UpdateProduct";
-import Loading from "@/components/Loading/Loading";
-
-// product type
-export type Product = {
-  _id: string;
-  name: string;
-  category: string;
-  stockQuantity: number;
-  brand: string;
-  rating: number;
-  description: string;
-  price: number;
-  image: string;
-  isDeleted: boolean;
-  createdAt: string;
-  updatedAt: string;
-};
 
 const categories = [
   "football",
@@ -105,7 +90,7 @@ const ManageProducts = () => {
     console.log("update", id);
   };
 
-  const columns: ColumnDef<Product>[] = [
+  const columns: ColumnDef<TProduct>[] = [
     {
       accessorKey: "name",
       header: "Name",
@@ -157,7 +142,7 @@ const ManageProducts = () => {
       accessorKey: "action",
       header: "Action",
       cell: ({ row }) => (
-        <div>
+        <div className=" flex justify-center items-center">
           <Button
             variant="ghost"
             onClick={() => handleDelete(row.original._id)}
@@ -218,42 +203,44 @@ const ManageProducts = () => {
               onChange={(event) =>
                 table.getColumn("name")?.setFilterValue(event.target.value)
               }
-              className="max-w-sm bg-[#02022D] text-white"
+              className="max-w-sm bg-[#02022D] text-white hidden md:flex"
             />
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="ml-auto bg-[#02022D]">
-                  Filter Category <ChevronDown className="ml-2 h-4 w-4 " />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align="end"
-                className="bg-[#02022D] text-white p-2.5"
-              >
-                {categories.map((category) => (
+            <div className="flex justify-between items-center w-full gap-16 md:gap-0">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="ml-auto bg-[#02022D]">
+                    Filter Category <ChevronDown className="ml-2 h-4 w-4 " />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="end"
+                  className="bg-[#02022D] text-white p-2.5"
+                >
+                  {categories.map((category) => (
+                    <DropdownMenuItem
+                      key={category}
+                      onSelect={() => {
+                        table.getColumn("category")?.setFilterValue(category);
+                      }}
+                    >
+                      {category}
+                    </DropdownMenuItem>
+                  ))}
                   <DropdownMenuItem
-                    key={category}
                     onSelect={() => {
-                      table.getColumn("category")?.setFilterValue(category);
+                      table.getColumn("category")?.setFilterValue(undefined);
                     }}
                   >
-                    {category}
+                    Clear Filter
                   </DropdownMenuItem>
-                ))}
-                <DropdownMenuItem
-                  onSelect={() => {
-                    table.getColumn("category")?.setFilterValue(undefined);
-                  }}
-                >
-                  Clear Filter
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </DropdownMenuContent>
+              </DropdownMenu>
 
-            {/* create product modal */}
-            <div>
-              <CreateProduct />
+              {/* create product modal */}
+              <div>
+                <CreateProduct />
+              </div>
             </div>
           </div>
           <div className="rounded-md border">
