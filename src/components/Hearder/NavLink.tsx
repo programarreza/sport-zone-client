@@ -6,7 +6,7 @@ const NavbarLinks = () => {
   const { selectedItems } = useAppSelector((store) => store.cart);
 
   return (
-    <div className="flex gap-8 ">
+    <div className="flex gap-2 justify-end flex-col md:flex-row md:gap-8">
       <NavLink
         to="/"
         className={({ isActive, isPending }) =>

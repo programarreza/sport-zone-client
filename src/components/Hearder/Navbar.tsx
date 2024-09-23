@@ -1,4 +1,5 @@
 import Container from "../Container";
+import NavbarMenu from "./NavbarMenu";
 import NavbarLinks from "./NavLink";
 import logo from "@/assets/images/logo.png";
 
@@ -6,20 +7,25 @@ const Navbar = () => {
   return (
     <div className="pt-4 pb-2 bg-[#020228] text-white ">
       <Container>
-        <div className="flex justify-between items-center">
-          <div className=" w-full">
+        <div className="flex justify-between items-center ">
+          <div className="w-[300px] ">
             <div className=" flex items-center gap-4">
               <img
                 src={logo}
                 alt=""
                 className="rounded-full bg-white w-12 border"
               />
-              <p className="text-3xl font-bold">sport zone</p>
+              <p className="text-xl lg:text-3xl font-bold">sport zone</p>
             </div>
           </div>
 
-          <div className=" w-full ">
+          <div className="hidden md:flex w-full justify-end">
             <NavbarLinks />
+          </div>
+
+          {/* mobile device navbarlink */}
+          <div className="flex md:hidden w-full justify-end">
+            <NavbarMenu />
           </div>
         </div>
         <hr className="mt-4" />

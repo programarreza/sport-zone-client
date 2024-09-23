@@ -17,7 +17,7 @@ const Categories = () => {
             Categories
           </h2>
 
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
             {data?.data?.map((category: TCategory) => (
               <div key={category._id}>
                 <Link to={`/products/${category?.categoryName}`}>

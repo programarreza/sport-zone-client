@@ -12,7 +12,7 @@ import logo from "@/assets/images/logo.png";
 const Footer = () => {
   return (
     <div className=" p-4 pt-12 md:p-3 md:pt-24 lg:p-12 xl:p-24 bg-[#020228] text-white shadow-2xl border-t-4 border-[#0B0B30] ">
-      <div className="flex justify-between ">
+      <div className="flex justify-between flex-col space-y-12 md:space-y-0  md:flex-row flex-wrap">
         <div className="flex-1">
           <Link to={"/"} className="flex gap-2">
             <img className="size-12 " src={logo} />
