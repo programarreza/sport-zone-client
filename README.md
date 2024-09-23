@@ -4,6 +4,8 @@
 
 This project is a comprehensive e-commerce website built for a sporting goods business. The platform offers a wide range of sports equipment and accessories, supporting a single user role that manages both customer and admin tasks. It provides a seamless experience for browsing products, managing inventory, and making purchases.
 
+## Live Link: https://sportszoneclient.vercel.app
+
 ## Core Features
 
 ### 1. Navbar & Footer
