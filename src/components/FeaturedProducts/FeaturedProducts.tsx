@@ -6,8 +6,8 @@ import { TProduct } from "@/types";
 import { FaBangladeshiTakaSign, FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
-import { Button } from "../ui/button";
 import Loading from "../Loading/Loading";
+import { Button } from "../ui/button";
 
 const FeaturedProducts = () => {
   const { data, isLoading, error } = useGetAllProductsQuery(
@@ -34,7 +34,7 @@ const FeaturedProducts = () => {
             Latest products
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-4">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
             {data?.data?.length === 0 ? (
               <p className="col-span-4 text-center text-white">
                 Product not available.
@@ -43,8 +43,8 @@ const FeaturedProducts = () => {
               data?.data?.slice(0, 8).map((product: TProduct) => (
                 <div key={product._id}>
                   <Card className="bg-[#02022d] text-white">
-                    <CardContent>
-                      <div className="grid w-full items-center gap-4 mt-6">
+                    <CardContent className="p-0">
+                      <div className="grid w-full items-center gap-4  p-2 ">
                         <div className="flex flex-col space-y-1.5">
                           <div className="w-full h-52 group rounded-lg relative items-center justify-center overflow-hidden  hover:shadow-xl hover:shadow-black/30 transition-shadow">
                             <img
@@ -54,14 +54,14 @@ const FeaturedProducts = () => {
                             />
                           </div>
                           <h2 className="font-semibold">
-                            {product.name.length > 27
-                              ? `${product.name.substring(0, 27)}...`
+                            {product.name.length > 23
+                              ? `${product.name.substring(0, 23)}...`
                               : product.name}
                           </h2>
 
                           <CardDescription>
-                            {product.description.length > 30
-                              ? `${product.description.substring(0, 30)}...`
+                            {product.description.length > 28
+                              ? `${product.description.substring(0, 28)}...`
                               : product.description}
                           </CardDescription>
 

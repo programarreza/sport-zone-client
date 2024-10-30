@@ -1,7 +1,7 @@
 import Container from "../Container";
 import NavbarMenu from "./NavbarMenu";
 import NavbarLinks from "./NavLink";
-import logo from "@/assets/images/logo.png";
+import logo from "@/assets/images/logo2.png";
 
 const Navbar = () => {
   return (
@@ -13,9 +13,9 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt=""
-                className="rounded-full bg-white w-12 border"
+                className=" bg-white size-12 rounded-full border"
               />
-              <p className="text-xl lg:text-3xl font-bold">sport zone</p>
+              <p className="text-xl lg:text-3xl font-bold">Remedy</p>
             </div>
           </div>
 

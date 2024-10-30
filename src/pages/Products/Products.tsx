@@ -12,7 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
 import { TProduct } from "@/types";
-import { brands, categories, priceSort } from "@/utils/utils";
+import { categories, priceSort } from "@/utils/utils";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { FaBangladeshiTakaSign, FaRegStar, FaStar } from "react-icons/fa6";
@@ -42,6 +42,13 @@ const Products = () => {
   }
 
   const { data, isLoading, error } = useGetAllProductsQuery(queryParams);
+
+  // Extract unique brands from the product data
+  const brands = [
+    ...new Set(data?.data?.map((product: TProduct) => product.brand)),
+  ] as string[];
+
+  console.log("Unique Brands:", brands);
 
   if (error) {
     const errorMessage =
@@ -117,7 +124,7 @@ const Products = () => {
                   align="end"
                   className="bg-[#02022D] text-white p-2.5"
                 >
-                  {brands.map((brand) => (
+                  {brands?.map((brand) => (
                     <DropdownMenuItem
                       key={brand}
                       onSelect={() => {
@@ -182,7 +189,7 @@ const Products = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
             {data?.data?.length === 0 ? (
               <p className="col-span-4 text-center text-white">
                 Product not available.
@@ -192,8 +199,8 @@ const Products = () => {
                 <div key={product._id}>
                   <Link to={`/single-product/${product?._id}`}>
                     <Card className="bg-[#02022d] text-white">
-                      <CardContent>
-                        <div className="grid w-full items-center gap-4 mt-6">
+                      <CardContent className="p-0">
+                        <div className="grid w-full items-center gap-4  p-2">
                           <div className="flex flex-col space-y-1.5">
                             <div className="w-full h-52 group rounded-lg relative items-center justify-center overflow-hidden  hover:shadow-xl hover:shadow-black/30 transition-shadow">
                               <img
@@ -203,14 +210,14 @@ const Products = () => {
                               />
                             </div>
                             <h2 className="font-semibold">
-                              {product.name.length > 27
-                                ? `${product.name.substring(0, 27)}...`
+                              {product.name.length > 23
+                                ? `${product.name.substring(0, 23)}...`
                                 : product.name}
                             </h2>
 
                             <CardDescription>
-                              {product.description.length > 30
-                                ? `${product.description.substring(0, 30)}...`
+                              {product.description.length > 28
+                                ? `${product.description.substring(0, 28)}...`
                                 : product.description}
                             </CardDescription>
 

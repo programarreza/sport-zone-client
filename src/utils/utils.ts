@@ -13,14 +13,16 @@ export const imageUpload = async (image: string | Blob) => {
 };
 
 export const categories = [
-  "football",
-  "basketball",
-  "baseball",
-  "protectiveGear",
-  "surfing",
-  "badminton",
-  "tennis",
-  "helmets",
+  "processor",
+  "monitor",
+  "mather board",
+  "graphic card",
+  "ram",
+  "ssd",
+  "casing",
+  "power supply",
+  "accessories",
+  "router",
   "others",
 ];
 
