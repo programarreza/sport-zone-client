@@ -9,11 +9,11 @@ const Categories = () => {
   const { data, isLoading } = useGetCategoryQuery("");
 
   return (
-    <div className="min-h-screen pb-12 bg-[#020228f6]">
+    <div className="min-h-screen pb-12 bg-[#190700]">
       <Container>
         <div>
           {isLoading && <Loading />}
-          <h2 className="mb-12 pb-5 text-white text-3xl md:text-4xl text-center pt-12   border-b-2 border-[#f57c48] w-fit mx-auto font-semibold">
+          <h2 className="mb-12 pb-5 text-white text-3xl md:text-4xl text-center pt-12   border-b-2 border-[#FF4500] w-fit mx-auto font-semibold">
             Categories
           </h2>
 
@@ -21,7 +21,7 @@ const Categories = () => {
             {data?.data?.map((category: TCategory) => (
               <div key={category._id}>
                 <Link to={`/products/${category?.categoryName}`}>
-                  <Card className="bg-[#02022d] text-white">
+                  <Card className="bg-[#120500] text-white border-[#FF4500]">
                     <CardContent className="p-0">
                       <div className="grid w-full items-center gap-8  p-2">
                         <div className="flex flex-col space-y-1.5">

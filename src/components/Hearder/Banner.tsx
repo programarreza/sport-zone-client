@@ -1,3 +1,4 @@
+import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 import { Card, CardContent } from "../ui/card";
 import {
@@ -7,7 +8,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 
 const Banner = () => {
   const plugin = useRef(Autoplay({ delay: 1500, stopOnInteraction: true }));
@@ -24,19 +24,19 @@ const Banner = () => {
           {Array.from({ length: 3 }).map((_, index) => (
             <CarouselItem key={index} className={`embla__slide slide-${index}`}>
               <div className="">
-                <Card className="bg-[#020228] border-none">
-                  <CardContent className=" aspect-square flex w-full p-0  h-[600px] ">
+                <Card className=" border-none">
+                  <CardContent className=" aspect-square flex w-full p-0  h-[550px] ">
                     {index === 1 ? (
                       <img
                         className="w-full h-full"
-                        src=" https://cdn.dribbble.com/users/3226801/screenshots/16671384/media/94cb2dc3903e83f2222e0599e97ca592.jpg"
+                        src="https://res.cloudinary.com/dudjn6epk/image/upload/v1730361197/zdfigxd7kabpa985ebgw.webp"
                         alt=""
                       />
                     ) : index === 2 ? (
                       <img
                         className="w-full h-full"
                         src="
-                        https://img.pikbest.com/origin/06/39/82/47ppIkbEsT7dJ.jpg!bwr800
+                        https://res.cloudinary.com/dudjn6epk/image/upload/v1730361198/bbzodlljbldg3hbxmuva.png
                         "
                         alt=""
                       />
@@ -44,7 +44,7 @@ const Banner = () => {
                       <img
                         className="w-full h-full"
                         src="
-                      https://i.pinimg.com/originals/a8/72/ed/a872ede45154798639d642e1bb1bf6d0.jpg
+                      https://res.cloudinary.com/dudjn6epk/image/upload/v1730361370/un4z0trlrfxcyqnm6ehe.jpg
                       "
                         alt=""
                       />
@@ -55,8 +55,8 @@ const Banner = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className=" ml-16 text-[#5969FF] bg-transparent" />
-        <CarouselNext className=" mr-16 text-[#5969FF] bg-transparent" />
+        <CarouselPrevious className=" ml-16 text-[#FF4500] bg-transparent" />
+        <CarouselNext className=" mr-16 text-[#FF4500] bg-transparent" />
       </Carousel>
     </div>
   );

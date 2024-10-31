@@ -26,11 +26,11 @@ const FeaturedProducts = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#020228] pb-12 ">
+    <div className="min-h-screen bg-[#1F0E07] pb-12 ">
       <Container>
         <div>
           {isLoading && <Loading />}
-          <h2 className="mb-12 pb-5 text-white text-3xl md:text-4xl text-center pt-12   border-b-2 border-[#f57c48] w-fit mx-auto font-semibold">
+          <h2 className="mb-12 pb-5 text-white text-3xl md:text-4xl text-center pt-12   border-b-2 border-[#FF4500] w-fit mx-auto font-semibold">
             Latest products
           </h2>
 
@@ -42,7 +42,7 @@ const FeaturedProducts = () => {
             ) : (
               data?.data?.slice(0, 8).map((product: TProduct) => (
                 <div key={product._id}>
-                  <Card className="bg-[#02022d] text-white">
+                  <Card className="bg-[#120500] text-white border-[#FF4500]">
                     <CardContent className="p-0">
                       <div className="grid w-full items-center gap-4  p-2 ">
                         <div className="flex flex-col space-y-1.5">
@@ -54,14 +54,14 @@ const FeaturedProducts = () => {
                             />
                           </div>
                           <h2 className="font-semibold">
-                            {product.name.length > 23
-                              ? `${product.name.substring(0, 23)}...`
+                            {product.name.length > 22
+                              ? `${product.name.substring(0, 22)}...`
                               : product.name}
                           </h2>
 
                           <CardDescription>
-                            {product.description.length > 28
-                              ? `${product.description.substring(0, 28)}...`
+                            {product.description.length > 26
+                              ? `${product.description.substring(0, 26)}...`
                               : product.description}
                           </CardDescription>
 
@@ -92,7 +92,7 @@ const FeaturedProducts = () => {
                               }
                             />
                             <Link to={`/single-product/${product?._id}`}>
-                              <Button>View details</Button>
+                              <button className="bg-[#b33000] text-white font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg">View details</button>
                             </Link>
                           </div>
                         </div>

@@ -59,7 +59,7 @@ const Products = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#020228]">
+    <div className="min-h-screen bg-[#190700]">
       <Container>
         {isLoading && <Loading />}
         <div>
@@ -69,7 +69,7 @@ const Products = () => {
                 onChange={(e) => setSearchValue(e.target.value)}
                 type="email"
                 placeholder="Search Product"
-                className="mx-auto bg-[#0B0B30] text-white"
+                className="mx-auto bg-[#120500] text-white border-[#FF4500]"
               />
             </div>
 
@@ -79,14 +79,14 @@ const Products = () => {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    className="ml-auto bg-[#02022D] text-white"
+                    className="ml-auto bg-transparent text-white border-[#FF4500]"
                   >
                     Filter Category <ChevronDown className="ml-2 h-4 w-4 " />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="bg-[#02022D] text-white p-2.5"
+                  className="bg-[#190700] text-white p-2.5 border-[#FF4500]"
                 >
                   {categories.map((category) => (
                     <DropdownMenuItem
@@ -115,14 +115,14 @@ const Products = () => {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    className="ml-auto bg-[#02022D] text-white"
+                    className="ml-auto bg-transparent text-white border-[#FF4500]"
                   >
                     Filter Brand <ChevronDown className="ml-2 h-4 w-4 " />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="bg-[#02022D] text-white p-2.5"
+                  className="bg-[#190700] text-white p-2.5 border-[#FF4500]"
                 >
                   {brands?.map((brand) => (
                     <DropdownMenuItem
@@ -151,14 +151,14 @@ const Products = () => {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    className="ml-auto bg-[#02022D] text-white"
+                    className="ml-auto bg-transparent text-white border-[#FF4500]"
                   >
                     Filter Price <ChevronDown className="ml-2 h-4 w-4 " />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="bg-[#02022D] text-white p-2.5"
+                  className="bg-[#190700] text-white p-2.5 border-[#FF4500]"
                 >
                   {priceSort.map((price) => (
                     <DropdownMenuItem
@@ -191,14 +191,14 @@ const Products = () => {
 
           <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
             {data?.data?.length === 0 ? (
-              <p className="col-span-4 text-center text-white">
+              <p className="col-span-5 text-center text-white flex justify-center items-center min-h-[80vh] text-xl">
                 Product not available.
               </p>
             ) : (
               data?.data?.map((product: TProduct) => (
                 <div key={product._id}>
                   <Link to={`/single-product/${product?._id}`}>
-                    <Card className="bg-[#02022d] text-white">
+                    <Card className="bg-[#120500] text-white border-[#FF4500]">
                       <CardContent className="p-0">
                         <div className="grid w-full items-center gap-4  p-2">
                           <div className="flex flex-col space-y-1.5">
@@ -210,14 +210,14 @@ const Products = () => {
                               />
                             </div>
                             <h2 className="font-semibold">
-                              {product.name.length > 23
-                                ? `${product.name.substring(0, 23)}...`
+                              {product.name.length > 22
+                                ? `${product.name.substring(0, 22)}...`
                                 : product.name}
                             </h2>
 
                             <CardDescription>
-                              {product.description.length > 28
-                                ? `${product.description.substring(0, 28)}...`
+                              {product.description.length > 26
+                                ? `${product.description.substring(0, 26)}...`
                                 : product.description}
                             </CardDescription>
 

@@ -1,17 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import {
   useGetSingleProductQuery,
   useUpdateProductMutation,
 } from "@/redux/features/product/productApi";
-import { imageUpload } from "@/utils/utils";
+import { categories, imageUpload } from "@/utils/utils";
 import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { FaRegEdit } from "react-icons/fa";
@@ -73,18 +66,12 @@ const UpdateProduct = ({ id }: { id: string }) => {
 
   return (
     <div>
-      <div className="ml-12">
+      <div className="">
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogTrigger asChild className="w-fit">
+          <DialogTrigger asChild className="">
             <FaRegEdit size={26} color="#5969FF" />
           </DialogTrigger>
-          <DialogContent className="bg-[#020228] text-white">
-            <DialogHeader>
-              <DialogTitle>Update Product</DialogTitle>
-              <DialogDescription>
-                Update the product details here.
-              </DialogDescription>
-            </DialogHeader>
+          <DialogContent className="bg-[#190700] text-white border-[#FF4500]">
             <div className="shadow-xl">
               <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -98,7 +85,7 @@ const UpdateProduct = ({ id }: { id: string }) => {
                     defaultValue={singleProduct?.name}
                     {...register("name", { required: true })}
                     placeholder="Product Name"
-                    className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
+                    className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500] "
                   />
                   {errors.name && (
                     <span className="text-[#D1A054]">
@@ -115,7 +102,7 @@ const UpdateProduct = ({ id }: { id: string }) => {
                     type="text"
                     {...register("brand", { required: true })}
                     placeholder="Brand Name"
-                    className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
+                    className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500] "
                   />
                   {errors.brand && (
                     <span className="text-[#D1A054]">
@@ -128,17 +115,17 @@ const UpdateProduct = ({ id }: { id: string }) => {
                 <div className="form-control mt-3">
                   <select
                     defaultValue={singleProduct?.category}
-                    className="border py-3 rounded-md w-full bg-[#02022D] space-y-10"
+                    className="border py-3 rounded-md w-full bg-[#1F0E07] border-[#FF4500] space-y-10"
                     {...register("category", { required: true })}
                   >
                     <option disabled selected>
                       product category
                     </option>
-                    <option value="hiking boots">hiking boots</option>
-                    <option value="basketball">basketball</option>
-                    <option value="tennis">tennis</option>
-                    <option value="bags & backpacks">bags & backpacks</option>
-                    <option value="football">football</option>
+                    {categories.map((category, index) => (
+                      <option key={index} value={category}>
+                        {category}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -149,7 +136,7 @@ const UpdateProduct = ({ id }: { id: string }) => {
                     type="number"
                     {...register("quantity", { required: true })}
                     placeholder="Product Quantity"
-                    className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
+                    className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500] "
                   />
                   {errors.quantity && (
                     <span className="text-[#D1A054]">
@@ -165,7 +152,7 @@ const UpdateProduct = ({ id }: { id: string }) => {
                     type="number"
                     {...register("price", { required: true })}
                     placeholder="Price BDT"
-                    className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
+                    className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500] "
                   />
                   {errors.price && (
                     <span className="text-[#D1A054]">price is required</span>
@@ -178,7 +165,7 @@ const UpdateProduct = ({ id }: { id: string }) => {
                     defaultValue={singleProduct?.description}
                     {...register("description", { required: true })}
                     placeholder="Description"
-                    className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
+                    className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500] "
                   />
                   {errors.description && (
                     <span className="text-[#D1A054]">
@@ -210,7 +197,7 @@ const UpdateProduct = ({ id }: { id: string }) => {
                 <div className="form-control mt-2 flex justify-center items-center py-0">
                   <button
                     type="submit"
-                    className="py-2 px-4 rounded-md opacity-90 hover:opacity-100  bg-[#5969FF] text-white"
+                    className="bg-[#b33000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg"
                   >
                     Submit
                   </button>

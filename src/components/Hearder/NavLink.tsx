@@ -13,8 +13,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#f57c48] hover:text-[#f57c48]"
-            : "hover:text-[#f57c48]"
+            ? "text-[#FF4500] hover:text-[#FF4500]"
+            : "hover:text-[#FF4500]"
         }
       >
         Home
@@ -25,8 +25,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#f57c48] hover:text-[#f57c48]"
-            : "hover:text-[#f57c48]"
+            ? "text-[#FF4500] hover:text-[#FF4500]"
+            : "hover:text-[#FF4500]"
         }
       >
         All Products
@@ -37,8 +37,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#f57c48] "
-            : "hover:text-[#f57c48]"
+            ? "text-[#FF4500] "
+            : "hover:text-[#FF4500]"
         }
       >
         Manage Products
@@ -49,8 +49,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#f57c48] "
-            : "hover:text-[#f57c48]"
+            ? "text-[#FF4500] "
+            : "hover:text-[#FF4500]"
         }
       >
         About Us
@@ -61,8 +61,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#f57c48] "
-            : "hover:text-[#f57c48]"
+            ? "text-[#FF4500] "
+            : "hover:text-[#FF4500]"
         }
       >
         <div className="relative">

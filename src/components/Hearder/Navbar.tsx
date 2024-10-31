@@ -5,7 +5,7 @@ import logo from "@/assets/images/logo2.png";
 
 const Navbar = () => {
   return (
-    <div className="pt-4 pb-2 bg-[#020228] text-white ">
+    <div className="pt-4 pb-2 bg-[#190700] text-white ">
       <Container>
         <div className="flex justify-between items-center ">
           <div className="w-[300px] ">
@@ -28,7 +28,7 @@ const Navbar = () => {
             <NavbarMenu />
           </div>
         </div>
-        <hr className="mt-4" />
+        <hr className="mt-4 border-[#FF4500]" />
       </Container>
     </div>
   );

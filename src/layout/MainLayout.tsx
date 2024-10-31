@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="bg-[#190700]">
       <ScrollToTop />
       <Navbar />
       <div className="min-h-screen">

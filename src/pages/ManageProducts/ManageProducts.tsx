@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -37,10 +38,10 @@ import {
   useGetAllProductsQuery,
 } from "@/redux/features/product/productApi";
 import { TProduct } from "@/types";
+import { categories } from "@/utils/utils";
 import { useState } from "react";
 import CreateProduct from "./CreateProduct";
 import UpdateProduct from "./UpdateProduct";
-import { categories } from "@/utils/utils";
 
 const ManageProducts = () => {
   const { data, isLoading, error } = useGetAllProductsQuery("");
@@ -58,17 +59,26 @@ const ManageProducts = () => {
         text: "You won't be able to revert this!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#ff7527",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!",
-      }).then(async (result) => {
+        width: "350px",
+        customClass: {
+          popup: "bg-[#120500] text-white border border-[#FF4500]",
+          title: "text-white",
+        },
+      }).then((result) => {
         if (result.isConfirmed) {
-          await deleteProduct(id);
-
+          deleteProduct(id);
           Swal.fire({
             title: "Deleted!",
-            text: "Your Product has been deleted.",
+            text: "Your product has been deleted.",
             icon: "success",
+            width: "350px",
+            customClass: {
+              popup: " bg-[#120500]  text-white ",
+              title: "text-white",
+            },
           });
         }
       });
@@ -132,17 +142,18 @@ const ManageProducts = () => {
       accessorKey: "action",
       header: "Action",
       cell: ({ row }) => (
-        <div className=" flex justify-center items-center">
+        <div className=" flex justify-center items-center gap-2">
           <Button
             variant="ghost"
             onClick={() => handleDelete(row.original._id)}
+            className=" w-10 p-0"
           >
             <AiFillDelete size={26} color="#C70000" />
           </Button>
           <Button
             variant="ghost"
             onClick={() => handleUpdate(row.original._id)}
-            className=" "
+            className=" w-10 p-0"
           >
             <UpdateProduct id={row.original._id} />
           </Button>
@@ -180,7 +191,7 @@ const ManageProducts = () => {
   }
 
   return (
-    <div className="bg-[#020228] text-white min-h-screen">
+    <div className="bg-[#190700] text-white min-h-screen">
       <Container>
         {isLoading && <Loading />}
         <div className="w-full">
@@ -193,21 +204,24 @@ const ManageProducts = () => {
               onChange={(event) =>
                 table.getColumn("name")?.setFilterValue(event.target.value)
               }
-              className="max-w-sm bg-[#02022D] text-white hidden md:flex"
+              className="max-w-sm bg-transparent text-white hidden md:flex border-[#FF4500] "
             />
 
             <div className="flex justify-between items-center w-full gap-16 md:gap-0">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="ml-auto bg-[#02022D]">
+                  <Button
+                    variant="outline"
+                    className="ml-auto bg-transparent border-[#FF4500]"
+                  >
                     Filter Category <ChevronDown className="ml-2 h-4 w-4 " />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="bg-[#02022D] text-white p-2.5"
+                  className="bg-[#190700] text-white p-2.5 border-[#FF4500]"
                 >
-                  {categories.map((category) => (
+                  {categories.map((category: any) => (
                     <DropdownMenuItem
                       key={category}
                       onSelect={() => {
@@ -233,14 +247,14 @@ const ManageProducts = () => {
               </div>
             </div>
           </div>
-          <div className="rounded-md border">
-            <Table>
-              <TableHeader>
+          <div className="rounded-md border border-[#FF4500]">
+            <Table className="border-[#FF4500]">
+              <TableHeader className="border-[#FF4500]">
                 {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id}>
+                  <TableRow key={headerGroup.id} className="border-[#FF4500]">
                     {headerGroup.headers.map((header) => {
                       return (
-                        <TableHead key={header.id}>
+                        <TableHead key={header.id} className="border-[#FF4500]">
                           {header.isPlaceholder
                             ? null
                             : flexRender(
@@ -253,10 +267,11 @@ const ManageProducts = () => {
                   </TableRow>
                 ))}
               </TableHeader>
-              <TableBody>
+              <TableBody className="border-[#FF4500]">
                 {table.getRowModel().rows?.length ? (
                   table.getRowModel().rows.map((row) => (
                     <TableRow
+                      className="border-[#FF4500]"
                       key={row.id}
                       data-state={row.getIsSelected() && "selected"}
                     >
@@ -271,7 +286,7 @@ const ManageProducts = () => {
                     </TableRow>
                   ))
                 ) : (
-                  <TableRow>
+                  <TableRow className="border-[#FF4500]">
                     <TableCell
                       colSpan={columns.length}
                       className="h-24 text-center"
@@ -292,7 +307,7 @@ const ManageProducts = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-[#5969FF] bg-[#02022D] hover:text-white"
+                className="hover:bg-[#5969FF] bg-transparent border-[#FF4500] hover:text-white"
                 onClick={() => table.previousPage()}
                 disabled={!table.getCanPreviousPage()}
               >
@@ -301,7 +316,7 @@ const ManageProducts = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-[#5969FF] bg-[#02022D] hover:text-white"
+                className="hover:bg-[#5969FF] bg-transparent border-[#FF4500] hover:text-white"
                 onClick={() => table.nextPage()}
                 disabled={!table.getCanNextPage()}
               >

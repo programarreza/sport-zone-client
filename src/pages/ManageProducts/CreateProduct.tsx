@@ -1,12 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useAddProductMutation } from "@/redux/features/product/productApi";
 import { categories, imageUpload } from "@/utils/utils";
 import { useEffect, useState } from "react";
@@ -63,15 +56,15 @@ const CreateProduct = () => {
     <div className="ml-12">
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline" className="bg-[#02022D]">
+          <Button variant="outline" className="bg-transparent border-[#FF4500]">
             Create Product
           </Button>
         </DialogTrigger>
-        <DialogContent className="bg-[#020228] text-white">
-          <DialogHeader>
+        <DialogContent className="bg-[#190700] text-white border-[#FF4500]">
+          {/* <DialogHeader>
             <DialogTitle>Create Product</DialogTitle>
             <DialogDescription>Make a product here.</DialogDescription>
-          </DialogHeader>
+          </DialogHeader> */}
           {/* form area */}
           <div className=" shadow-xl ">
             <form onSubmit={handleSubmit(onSubmit)} className="p-2 rounded-md">
@@ -82,10 +75,10 @@ const CreateProduct = () => {
                   type="text"
                   {...register("name", { required: true })}
                   placeholder="Product Name"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D] "
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500] "
                 />
                 {errors.name && (
-                  <span className="text-[#D1A054]">
+                  <span className="text-[#FF4500]">
                     Product Name is required
                   </span>
                 )}
@@ -98,17 +91,17 @@ const CreateProduct = () => {
                   type="text"
                   {...register("brand", { required: true })}
                   placeholder="Brand Name"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500]"
                 />
                 {errors.name && (
-                  <span className="text-[#D1A054]">Brand Name is required</span>
+                  <span className="text-[#FF4500]">Brand Name is required</span>
                 )}
               </div>
 
               {/* category */}
               <div className="form-control mt-3">
                 <select
-                  className="border py-3 rounded-md w-full bg-[#02022D] space-y-10"
+                  className="border py-3 rounded-md w-full bg-[#1F0E07] border-[#FF4500] space-y-10"
                   {...register("category", { required: true })}
                 >
                   <option disabled selected>
@@ -126,10 +119,10 @@ const CreateProduct = () => {
                   type="number"
                   {...register("quantity", { required: true })}
                   placeholder="Product Quantity"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500]"
                 />
                 {errors.quantity && (
-                  <span className="text-[#D1A054]">
+                  <span className="text-[#FF4500]">
                     stock quantity is required
                   </span>
                 )}
@@ -141,10 +134,10 @@ const CreateProduct = () => {
                   type="number"
                   {...register("price", { required: true })}
                   placeholder="Price BDT"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500]"
                 />
                 {errors.price && (
-                  <span className="text-[#D1A054]">price is required</span>
+                  <span className="text-[#FF4500]">price is required</span>
                 )}
               </div>
 
@@ -153,10 +146,10 @@ const CreateProduct = () => {
                 <textarea
                   {...register("description", { required: true })}
                   placeholder="Description"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#02022D]"
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500]"
                 />
                 {errors.description && (
-                  <span className="text-[#D1A054]">
+                  <span className="text-[#FF4500]">
                     description is required
                   </span>
                 )}
@@ -176,7 +169,7 @@ const CreateProduct = () => {
                   accept="image/*"
                 />
                 {errors.image && (
-                  <span className="text-[#D1A054]">
+                  <span className="text-[#FF4500]">
                     Product Image is required
                   </span>
                 )}
