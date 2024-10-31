@@ -7,7 +7,6 @@ import { FaBangladeshiTakaSign, FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
-import { Button } from "../ui/button";
 
 const FeaturedProducts = () => {
   const { data, isLoading, error } = useGetAllProductsQuery(
@@ -92,7 +91,9 @@ const FeaturedProducts = () => {
                               }
                             />
                             <Link to={`/single-product/${product?._id}`}>
-                              <button className="bg-[#b33000] text-white font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg">View details</button>
+                              <button className="bg-[#b33000] text-white font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg">
+                                View details
+                              </button>
                             </Link>
                           </div>
                         </div>

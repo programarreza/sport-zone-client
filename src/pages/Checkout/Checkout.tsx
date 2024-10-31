@@ -60,8 +60,8 @@ const Checkout = () => {
   }, [dispatch, isSuccess, navigate]);
 
   return (
-    <div className="bg-[#020228] min-h-screen">
-      <div className="flex justify-center items-center bg-[#020228] text-white min-h-[90vh]">
+    <div className="bg-[#190700] min-h-screen">
+      <div className="flex justify-center items-center bg-[#190700] text-white min-h-[90vh]">
         <Container>
           <div className="">
             {/* customer info */}
@@ -75,7 +75,7 @@ const Checkout = () => {
                         onSubmit={handleSubmit(onSubmit)}
                         className="space-y-5 pb-5 grid lg:grid-cols-2 xl:grid-cols-3 gap-4"
                       >
-                        <div className="p-4 space-y-4 mt-5 pt-16 bg-[#0B0B30]">
+                        <div className="p-4 space-y-4 mt-5 pt-16 bg-[#1F0E07]">
                           <h2 className="text-center text-xl font-bold pb-0">
                             Customer Info
                           </h2>
@@ -87,7 +87,7 @@ const Checkout = () => {
                               type="text"
                               {...register("name", { required: true })}
                               placeholder="Name"
-                              className="input input-bordered bg-[#020228] text-white"
+                              className="input input-bordered bg-[#120500] border-[#000] text-white"
                             />
                             {errors.name && (
                               <span className="text-[#006ce1]">
@@ -103,7 +103,7 @@ const Checkout = () => {
                               type="email"
                               {...register("email", { required: true })}
                               placeholder="Email"
-                              className="input input-bordered bg-[#020228] text-white"
+                              className="input input-bordered bg-[#120500] border-[#000] text-white"
                             />
                             {errors.email && (
                               <span className="text-[#006ce1]">
@@ -119,7 +119,7 @@ const Checkout = () => {
                               type="text"
                               {...register("number", { required: true })}
                               placeholder="Phone Number"
-                              className="input input-bordered bg-[#020228] text-white"
+                              className="input input-bordered bg-[#120500] border-[#000] text-white"
                             />
                             {errors.number && (
                               <span className="text-[#006ce1]">
@@ -135,7 +135,7 @@ const Checkout = () => {
                               type="text"
                               {...register("address", { required: true })}
                               placeholder="Address"
-                              className="input input-bordered bg-[#020228] text-white"
+                              className="input input-bordered bg-[#120500] border-[#000] text-white"
                             />
                             {errors.address && (
                               <span className="text-[#006ce1]">
@@ -146,7 +146,7 @@ const Checkout = () => {
                         </div>
 
                         {/* payment method */}
-                        <div className="bg-[#0B0B30] py-12 ">
+                        <div className="bg-[#1F0E07] py-12 ">
                           <h2 className="text-center text-xl font-bold mt-5">
                             Payment Method
                           </h2>
@@ -220,7 +220,7 @@ const Checkout = () => {
                         </div>
 
                         {/* order summary */}
-                        <div className="bg-[#0B0B30] py-12 mx-auto w-full">
+                        <div className="bg-[#1F0E07] py-12 mx-auto w-full">
                           <div className=" w-full h-full px-4 rounded">
                             <table className="table-auto w-full text-left">
                               <thead>
@@ -270,7 +270,7 @@ const Checkout = () => {
                             <div className="mt-14">
                               <button
                                 type="submit"
-                                className="bg-black px-3 py-2 text-white mt-2 rounded-md w-full flex justify-center items-center"
+                                className="bg-[#b33000] text-white font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg mt-2  w-full flex justify-center items-center"
                               >
                                 {isLoading ? (
                                   <ImSpinner6

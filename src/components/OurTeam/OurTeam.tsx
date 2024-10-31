@@ -11,7 +11,7 @@ const OurTeam = () => {
         className="px-4 md:px-6 lg:px-12 xl:px-24 min-h-screen text-white pb-24"
         id="projects"
       >
-        <h2 className="mb-12 pb-5 text-3xl md:text-4xl text-center pt-12 md:pt-24  border-b-2 border-[#f57c48] w-fit mx-auto font-semibold">
+        <h2 className="mb-12 pb-5 text-3xl md:text-4xl text-center pt-12 md:pt-24  border-b-2 border-[#FF4500] w-fit mx-auto font-semibold">
           Our Team
         </h2>
 
@@ -36,17 +36,17 @@ const OurTeam = () => {
 
                 <div className="flex gap-6 mt-4">
                   <Link to="" className="link link-hover">
-                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#f57c48]/50 hover:bg-[#f57c48] border-[#f57c48]  ">
+                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]  ">
                       <FaFacebookF color="#fff" />
                     </p>
                   </Link>
                   <Link to="" className="link link-hover">
-                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#f57c48]/50 hover:bg-[#f57c48] border-[#f57c48]  ">
+                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]  ">
                       <FaTwitter color="#fff" />
                     </p>
                   </Link>
                   <Link to="" className="link link-hover">
-                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#f57c48]/50 hover:bg-[#f57c48] border-[#f57c48]">
+                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]">
                       <FaLinkedinIn color="#fff" />
                     </p>
                   </Link>
@@ -75,17 +75,17 @@ const OurTeam = () => {
 
                 <div className="flex gap-6 mt-4">
                   <Link to="" className="link link-hover">
-                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#f57c48]/50 hover:bg-[#f57c48] border-[#f57c48]  ">
+                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]  ">
                       <FaFacebookF color="#fff" />
                     </p>
                   </Link>
                   <Link to="" className="link link-hover">
-                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#f57c48]/50 hover:bg-[#f57c48] border-[#f57c48]  ">
+                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]  ">
                       <FaTwitter color="#fff" />
                     </p>
                   </Link>
                   <Link to="" className="link link-hover">
-                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#f57c48]/50 hover:bg-[#f57c48] border-[#f57c48]">
+                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]">
                       <FaLinkedinIn color="#fff" />
                     </p>
                   </Link>
@@ -114,17 +114,17 @@ const OurTeam = () => {
 
                 <div className="flex gap-6 mt-4">
                   <Link to="" className="link link-hover">
-                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#f57c48]/50 hover:bg-[#f57c48] border-[#f57c48]  ">
+                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]  ">
                       <FaFacebookF color="#fff" />
                     </p>
                   </Link>
                   <Link to="" className="link link-hover">
-                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#f57c48]/50 hover:bg-[#f57c48] border-[#f57c48]  ">
+                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]  ">
                       <FaTwitter color="#fff" />
                     </p>
                   </Link>
                   <Link to="" className="link link-hover">
-                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#f57c48]/50 hover:bg-[#f57c48] border-[#f57c48]">
+                    <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]">
                       <FaLinkedinIn color="#fff" />
                     </p>
                   </Link>

@@ -73,7 +73,7 @@ const CartDetails = ({ product }: { product: TProduct }) => {
           <div className="flex items-center space-x-2">
             <Button
               onClick={() => handleQuantity("decrement", product._id)}
-              className=""
+              className="bg-[#b33000] text-white font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg"
               disabled={product.quantity <= 1}
             >
               <Minus size={25} />
@@ -81,7 +81,7 @@ const CartDetails = ({ product }: { product: TProduct }) => {
             <span className="text-lg font-semibold">{product.quantity}</span>
             <Button
               onClick={() => handleQuantity("increment", product._id)}
-              className=""
+              className="bg-[#b33000] text-white font-semibold py-1.5 px-3 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg"
               disabled={product.quantity >= 5}
             >
               <Plus size={18} />

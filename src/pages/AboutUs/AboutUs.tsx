@@ -8,7 +8,7 @@ const AboutUs = () => {
     <div className="min-h-screen  text-white">
       <div>
         {/* our mission and vision */}
-        <div className="bg-[#020228] py-5">
+        <div className="bg-[#190700] py-5">
           <Container>
             <div className="flex flex-col lg:flex-row justify-between  gap-4 xl:gap-12 ">
               <div className="w-full shadow-xl rounded-md">
@@ -54,12 +54,12 @@ const AboutUs = () => {
         </div>
 
         {/* our team */}
-        <div className="bg-[#0B0B30]">
+        <div className="bg-[#1F0E07]">
           <OurTeam />
         </div>
 
         {/* contact */}
-        <div className="pt-5 bg-[#020228]">
+        <div className="pt-5 bg-[#190700]">
           <Map />
         </div>
       </div>

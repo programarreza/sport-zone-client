@@ -1,3 +1,4 @@
+import logo from "@/assets/images/logo2.png";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -7,7 +8,6 @@ import {
 import { FiClock } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import logo from "@/assets/images/logo2.png";
 
 const Footer = () => {
   return (
@@ -15,16 +15,16 @@ const Footer = () => {
       <div className="flex justify-between flex-col space-y-12 md:space-y-0  md:flex-row flex-wrap">
         <div className="flex-1">
           <Link to={"/"} className="flex gap-2">
-          <div className="w-[300px] ">
-            <div className=" flex items-center gap-4">
-              <img
-                src={logo}
-                alt=""
-                className=" bg-white size-12 rounded-full border"
-              />
-              <p className="text-xl lg:text-3xl font-bold">Remedy</p>
+            <div className="w-[300px] ">
+              <div className=" flex items-center gap-4">
+                <img
+                  src={logo}
+                  alt=""
+                  className=" bg-white size-12 rounded-full border"
+                />
+                <p className="text-xl lg:text-3xl font-bold">Remedy</p>
+              </div>
             </div>
-          </div>
           </Link>
           <p className="mr-12 mt-6">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
@@ -75,23 +75,22 @@ const Footer = () => {
         <div className="flex-1">
           <h6 className="text-2xl font-bold text-[#FF4500]">Get Connected</h6>
           <div className="space-y-8">
-            <Link to={""} className=" flex items-center gap-2">
+            <h2 className=" flex items-center gap-2">
               <HiOutlineMail size={25} color="#FF4500" />
-              <span>programarreza@gmail.com</span>
-            </Link>
-            <Link to={""} className=" flex items-center gap-2">
+              <span>fayjulkarim2@gmail.com</span>
+            </h2>
+            <h2 className=" flex items-center gap-2">
               <FaPhoneAlt size={20} color="#FF4500" />
-              <span>+8801754846487</span>
-            </Link>
-            <Link to={""} className=" flex  gap-2">
+              <span>01721-880383</span>
+            </h2>
+            <h2 className=" flex  gap-2">
               <FiClock size={25} color="#FF4500" />
               <div>
                 <p>Saturday to Wednesday: 9:00 AM – 6:00 PM </p>
               </div>
-            </Link>
+            </h2>
           </div>
         </div>
-        
       </div>
     </div>
   );

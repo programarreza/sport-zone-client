@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const PaymentSuccess = () => {
   return (
-    <div className=" min-h-[calc(100vh-65px)] bg-[#020228] text-white">
+    <div className=" min-h-[calc(100vh-65px)] bg-[#190700] text-white">
       <Container>
         <div className="min-h-screen flex justify-center items-center flex-col">
           <div className="flex justify-center items-center flex-col">
@@ -19,7 +19,7 @@ const PaymentSuccess = () => {
 
           <div className=" flex justify-center items-center">
             <Link to="/">
-              <Button className="btn mt-4  bg-[#61adff] hover:bg-[#006ce1] text-white  ">
+              <Button className="bg-[#b33000] text-white font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg mt-4">
                 Back to home
               </Button>
             </Link>
