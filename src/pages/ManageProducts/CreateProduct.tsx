@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useAddProductMutation } from "@/redux/features/product/productApi";
-import { categories, imageUpload } from "@/utils/utils";
+import { categories } from "@/utils/utils";
 import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { ImSpinner6 } from "react-icons/im";
@@ -17,22 +17,24 @@ const CreateProduct = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit: SubmitHandler<FieldValues> = async (formData) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
-      const image = formData.image[0];
-      const imageData = await imageUpload(image);
+      const formData = new FormData();
+      const imageFile = data.image[0];
+      formData.append("image", imageFile);
 
       const productData = {
-        name: formData.name,
-        category: formData.category,
-        stockQuantity: parseInt(formData.quantity, 10),
-        brand: formData.brand,
-        description: formData.description,
-        price: parseFloat(formData.price),
-        image: imageData?.data?.display_url,
+        name: data.name,
+        category: data.category,
+        stockQuantity: parseInt(data.quantity, 10),
+        brand: data.brand,
+        description: data.description,
+        price: parseFloat(data.price),
       };
 
-      await addProduct(productData);
+      formData.append("data", JSON.stringify(productData));
+
+      await addProduct(formData);
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong", {
@@ -61,10 +63,6 @@ const CreateProduct = () => {
           </Button>
         </DialogTrigger>
         <DialogContent className="bg-[#190700] text-white border-[#FF4500]">
-          {/* <DialogHeader>
-            <DialogTitle>Create Product</DialogTitle>
-            <DialogDescription>Make a product here.</DialogDescription>
-          </DialogHeader> */}
           {/* form area */}
           <div className=" shadow-xl ">
             <form onSubmit={handleSubmit(onSubmit)} className="p-2 rounded-md">
