@@ -24,7 +24,6 @@ const productApi = baseApi.injectEndpoints({
 
     getSingleProduct: builder.query({
       query: (id) => {
-        console.log("from redux", id);
         return {
           url: `products/${id}`,
           method: "GET",

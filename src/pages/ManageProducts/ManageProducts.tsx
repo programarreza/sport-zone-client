@@ -17,6 +17,7 @@ import Swal from "sweetalert2";
 
 import Container from "@/components/Container";
 import Loading from "@/components/Loading/Loading";
+import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -86,11 +87,19 @@ const ManageProducts = () => {
       console.log("Failed to delete product ", error);
     }
   };
-  const handleUpdate = (id: string) => {
-    console.log("update", id);
-  };
 
   const columns: ColumnDef<TProduct>[] = [
+    {
+      accessorKey: "avatar",
+      header: "Avatar",
+      cell: ({ row }) => {
+        const original = row.original;
+        const image = original.image;
+        const name = original.name;
+
+        return <Avatar src={image} alt={name} fallbackText={name} />;
+      },
+    },
     {
       accessorKey: "name",
       header: "Name",
@@ -152,7 +161,6 @@ const ManageProducts = () => {
           </Button>
           <Button
             variant="ghost"
-            onClick={() => handleUpdate(row.original._id)}
             className=" w-10 p-0"
           >
             <UpdateProduct id={row.original._id} />
