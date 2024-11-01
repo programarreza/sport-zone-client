@@ -4,7 +4,7 @@ import {
   useGetSingleProductQuery,
   useUpdateProductMutation,
 } from "@/redux/features/product/productApi";
-import { categories, imageUpload } from "@/utils/utils";
+import { categories } from "@/utils/utils";
 import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { FaRegEdit } from "react-icons/fa";
@@ -29,29 +29,30 @@ const UpdateProduct = ({ id }: { id: string }) => {
     }
   }, [isSuccess]);
 
-  const onSubmit: SubmitHandler<FieldValues> = async (formData) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const toastId = toast.loading("Please wait", { position: "top-center" });
 
     try {
-      let imageUrl = singleProduct?.image;
+      const formData = new FormData();
+      const existingImageUrl = singleProduct?.image;
 
-      if (formData.image[0]) {
-        const image = formData.image[0];
-        const imageData = await imageUpload(image);
-        imageUrl = imageData?.data?.display_url;
+      if (data.image[0]) {
+        const imageFile = data.image[0];
+        formData.append("image", imageFile || existingImageUrl);
       }
 
       const productData = {
-        name: formData.name,
-        category: formData.category,
-        stockQuantity: parseInt(formData.quantity, 10),
-        brand: formData.brand,
-        description: formData.description,
-        price: parseFloat(formData.price),
-        image: imageUrl,
+        name: data.name,
+        category: data.category,
+        stockQuantity: parseInt(data.quantity, 10),
+        brand: data.brand,
+        description: data.description,
+        price: parseFloat(data.price),
       };
 
-      await updateProduct({ id, updateData: productData });
+      formData.append("data", JSON.stringify(productData));
+
+      await updateProduct({ id, updateData: formData });
 
       toast.dismiss(toastId);
     } catch (error) {
