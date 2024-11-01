@@ -6,7 +6,7 @@ import { TProduct } from "@/types";
 import { FaBangladeshiTakaSign, FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
-import Loading from "../Loading/Loading";
+import LoadingSection from "../Loading/LoadingSection";
 
 const FeaturedProducts = () => {
   const { data, isLoading, error } = useGetAllProductsQuery(
@@ -28,7 +28,6 @@ const FeaturedProducts = () => {
     <div className="min-h-screen bg-[#1F0E07] pb-12 ">
       <Container>
         <div>
-          {isLoading && <Loading />}
           <h2 className="mb-12 pb-5 text-white text-3xl md:text-4xl text-center pt-12   border-b-2 border-[#FF4500] w-fit mx-auto font-semibold">
             Latest products
           </h2>
@@ -104,6 +103,8 @@ const FeaturedProducts = () => {
               ))
             )}
           </div>
+
+          {isLoading && <LoadingSection />}
         </div>
       </Container>
     </div>

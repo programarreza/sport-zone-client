@@ -91,7 +91,7 @@ const ManageProducts = () => {
   const columns: ColumnDef<TProduct>[] = [
     {
       accessorKey: "avatar",
-      header: "Avatar",
+      header: "Image",
       cell: ({ row }) => {
         const original = row.original;
         const image = original.image;

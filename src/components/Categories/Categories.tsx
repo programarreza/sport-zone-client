@@ -2,7 +2,7 @@ import { useGetCategoryQuery } from "@/redux/features/category/categoryApi";
 import { TCategory } from "@/types";
 import { Link } from "react-router-dom";
 import Container from "../Container";
-import Loading from "../Loading/Loading";
+import LoadingSection from "../Loading/LoadingSection";
 import { Card, CardContent } from "../ui/card";
 
 const Categories = () => {
@@ -12,7 +12,7 @@ const Categories = () => {
     <div className="min-h-screen pb-12 bg-[#190700]">
       <Container>
         <div>
-          {isLoading && <Loading />}
+          {/* {isLoading && <Loading />} */}
           <h2 className="mb-12 pb-5 text-white text-3xl md:text-4xl text-center pt-12   border-b-2 border-[#FF4500] w-fit mx-auto font-semibold">
             Categories
           </h2>
@@ -43,6 +43,8 @@ const Categories = () => {
               </div>
             ))}
           </div>
+
+          {isLoading && <LoadingSection />}
         </div>
       </Container>
     </div>
