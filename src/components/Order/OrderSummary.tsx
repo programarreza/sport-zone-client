@@ -68,7 +68,7 @@ const OrderSummary = () => {
             e.stopPropagation();
             navigate("/checkout");
           }}
-          className="bg-[#b33000] text-white font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg  mt-2 w-full  flex justify-center items-center"
+          className="bg-[#b33000]  font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg  mt-2 w-full  flex justify-center items-center text-white"
         >
           <span>Proceed Checkout</span>
         </button>

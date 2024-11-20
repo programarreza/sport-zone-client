@@ -13,8 +13,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF4500] hover:text-[#FF4500]"
-            : "hover:text-[#FF4500]"
+            ? "text-black hover:text-white"
+            : "hover:text-black"
         }
       >
         Home
@@ -25,8 +25,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF4500] hover:text-[#FF4500]"
-            : "hover:text-[#FF4500]"
+            ? "text-black hover:text-white"
+            : "hover:text-black"
         }
       >
         All Products
@@ -37,8 +37,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF4500] "
-            : "hover:text-[#FF4500]"
+            ? "text-black hover:text-white"
+            : "hover:text-black"
         }
       >
         Manage Products
@@ -49,8 +49,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF4500] "
-            : "hover:text-[#FF4500]"
+            ? "text-black hover:text-white"
+            : "hover:text-black"
         }
       >
         About Us
@@ -61,8 +61,8 @@ const NavbarLinks = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF4500] "
-            : "hover:text-[#FF4500]"
+            ? "text-black hover:text-white"
+            : "hover:text-black"
         }
       >
         <div className="relative">

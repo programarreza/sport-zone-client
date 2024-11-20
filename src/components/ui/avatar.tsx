@@ -18,7 +18,7 @@ export const Avatar: FC<AvatarProps> = ({ src, alt, fallbackText }) => {
         />
       ) : (
         <span
-          className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-white"
+          className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center "
           aria-label="Fallback avatar"
         >
           {fallbackText.slice(0, 2).toUpperCase()}{" "}

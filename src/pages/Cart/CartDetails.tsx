@@ -56,40 +56,39 @@ const CartDetails = ({ product }: { product: TProduct }) => {
         </div>
 
         <div className=" flex justify-between items-center gap-44 md:gap-12">
-          <div> 
+          <div>
             <div className="flex items-center gap-2 mb-2">
               <FaBangladeshiTakaSign />
               {product?.price}
             </div>
             <button
               onClick={(e) => handleRemove(e, product._id)}
-              className="bg-red-600 text-white p-1 rounded-full hover:bg-red-700"
+              className="bg-red-600  p-1 rounded-full hover:bg-red-700"
             >
-              <MdDeleteSweep size={20} />
+              <MdDeleteSweep size={20} color="#fff"/>
             </button>
           </div>
 
-        <div>
-          <div className="flex items-center space-x-2">
-            <Button
-              onClick={() => handleQuantity("decrement", product._id)}
-              className="bg-[#b33000] text-white font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg"
-              disabled={product.quantity <= 1}
-            >
-              <Minus size={25} />
-            </Button>
-            <span className="text-lg font-semibold">{product.quantity}</span>
-            <Button
-              onClick={() => handleQuantity("increment", product._id)}
-              className="bg-[#b33000] text-white font-semibold py-1.5 px-3 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg"
-              disabled={product.quantity >= 5}
-            >
-              <Plus size={18} />
-            </Button>
+          <div>
+            <div className="flex items-center space-x-2">
+              <Button
+                onClick={() => handleQuantity("decrement", product._id)}
+                className="bg-[#b33000]  font-semibold py-1.5 px-2 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg"
+                disabled={product.quantity <= 1}
+              >
+                <Minus size={25} />
+              </Button>
+              <span className="text-lg font-semibold">{product.quantity}</span>
+              <Button
+                onClick={() => handleQuantity("increment", product._id)}
+                className="bg-[#b33000]  font-semibold py-1.5 px-3 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg"
+                disabled={product.quantity >= 5}
+              >
+                <Plus size={18} />
+              </Button>
+            </div>
           </div>
         </div>
-        </div>
-
       </div>
     </div>
   );

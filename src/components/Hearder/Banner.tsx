@@ -25,7 +25,7 @@ const Banner = () => {
             <CarouselItem key={index} className={`embla__slide slide-${index}`}>
               <div className="">
                 <Card className=" border-none">
-                  <CardContent className=" aspect-square flex w-full p-0  h-[550px] ">
+                  <CardContent className=" aspect-square flex w-full p-0  h-[560px] ">
                     {index === 1 ? (
                       <img
                         className="w-full h-full"

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="border-t border-[#FF4500] p-4 pt-12 md:p-3 md:pt-24 lg:p-12 xl:p-24 bg-[#190700] text-white shadow-2xl ">
+    <div className="border-t  p-4 pt-12 md:p-3 md:pt-24 lg:p-12 xl:p-24 bg-[#F2F4F8]  shadow-2xl ">
       <div className="flex justify-between flex-col space-y-12 md:space-y-0  md:flex-row flex-wrap">
         <div className="flex-1">
           <Link to={"/"} className="flex gap-2">
@@ -33,17 +33,17 @@ const Footer = () => {
           </p>
           <div className="flex gap-6 mt-12">
             <Link to="" className="link link-hover">
-              <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]  ">
+              <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500]   ">
                 <FaFacebookF />
               </p>
             </Link>
             <Link to="" className="link link-hover">
-              <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]  ">
+              <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500]   ">
                 <FaTwitter />
               </p>
             </Link>
             <Link to="" className="link link-hover">
-              <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] border-[#FF4500]">
+              <p className="border p-2 block rounded-full hover:shadow-xl hover:shadow-[#FF4500]/50 hover:bg-[#FF4500] ">
                 <FaLinkedinIn />
               </p>
             </Link>

@@ -5,7 +5,7 @@ import Header from "@/components/Hearder/Header";
 
 const Home = () => {
   return (
-    <div className="font-raleway">
+    <div className="font-raleway bg-[#F2F4F8]">
       <Header />
       <FeaturedProducts/>
       <Categories/>

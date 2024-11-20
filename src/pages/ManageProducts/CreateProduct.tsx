@@ -58,11 +58,11 @@ const CreateProduct = () => {
     <div className="ml-12">
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline" className="bg-transparent border-[#FF4500]">
+          <Button variant="outline" className="bg-transparent ">
             Create Product
           </Button>
         </DialogTrigger>
-        <DialogContent className="bg-[#190700] text-white border-[#FF4500]">
+        <DialogContent className="bg-[#F2F4F8]  ">
           {/* form area */}
           <div className=" shadow-xl ">
             <form onSubmit={handleSubmit(onSubmit)} className="p-2 rounded-md">
@@ -73,7 +73,7 @@ const CreateProduct = () => {
                   type="text"
                   {...register("name", { required: true })}
                   placeholder="Product Name"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500] "
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#F2F4F8]  "
                 />
                 {errors.name && (
                   <span className="text-[#FF4500]">
@@ -89,7 +89,7 @@ const CreateProduct = () => {
                   type="text"
                   {...register("brand", { required: true })}
                   placeholder="Brand Name"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500]"
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#F2F4F8] "
                 />
                 {errors.name && (
                   <span className="text-[#FF4500]">Brand Name is required</span>
@@ -99,7 +99,7 @@ const CreateProduct = () => {
               {/* category */}
               <div className="form-control mt-3">
                 <select
-                  className="border py-3 rounded-md w-full bg-[#1F0E07] border-[#FF4500] space-y-10"
+                  className="border py-3 rounded-md w-full bg-[#F2F4F8]  space-y-10"
                   {...register("category", { required: true })}
                 >
                   <option disabled selected>
@@ -117,7 +117,7 @@ const CreateProduct = () => {
                   type="number"
                   {...register("quantity", { required: true })}
                   placeholder="Product Quantity"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500]"
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#F2F4F8] "
                 />
                 {errors.quantity && (
                   <span className="text-[#FF4500]">
@@ -132,7 +132,7 @@ const CreateProduct = () => {
                   type="number"
                   {...register("price", { required: true })}
                   placeholder="Price BDT"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500]"
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#F2F4F8] "
                 />
                 {errors.price && (
                   <span className="text-[#FF4500]">price is required</span>
@@ -144,7 +144,7 @@ const CreateProduct = () => {
                 <textarea
                   {...register("description", { required: true })}
                   placeholder="Description"
-                  className="input input-bordered border p-3 w-full rounded-lg bg-[#1F0E07] border-[#FF4500]"
+                  className="input input-bordered border p-3 w-full rounded-lg bg-[#F2F4F8] "
                 />
                 {errors.description && (
                   <span className="text-[#FF4500]">
@@ -176,7 +176,7 @@ const CreateProduct = () => {
               <div className="form-control mt-2 flex justify-center items-center py-0">
                 <button
                   type="submit"
-                  className="py-2 px-4 rounded-md opacity-90 hover:opacity-100  bg-[#5969FF] text-white"
+                  className="border border-[#FF4500] font-semibold  hover:bg-[#FF4500] hover:text-white  py-2 px-4 rounded-md opacity-90 hover:opacity-100"
                 >
                   {isLoading ? (
                     <ImSpinner6 size={28} className="animate-spin m-auto" />

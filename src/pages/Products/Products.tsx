@@ -59,7 +59,7 @@ const Products = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#190700]">
+    <div className="min-h-screen bg-[#F2F4F8]">
       <Container>
         {isLoading && <Loading />}
         <div>
@@ -69,7 +69,7 @@ const Products = () => {
                 onChange={(e) => setSearchValue(e.target.value)}
                 type="email"
                 placeholder="Search Product"
-                className="mx-auto bg-[#120500] text-white border-[#FF4500]"
+                className="mx-auto bg-[#FFF]  "
               />
             </div>
 
@@ -79,14 +79,14 @@ const Products = () => {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    className="ml-auto bg-transparent text-white border-[#FF4500]"
+                    className="ml-auto bg-transparent  "
                   >
                     Filter Category <ChevronDown className="ml-2 h-4 w-4 " />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="bg-[#190700] text-white p-2.5 border-[#FF4500]"
+                  className="bg-[#F2F4F8]  p-2.5 "
                 >
                   {categories.map((category) => (
                     <DropdownMenuItem
@@ -115,14 +115,14 @@ const Products = () => {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    className="ml-auto bg-transparent text-white border-[#FF4500]"
+                    className="ml-auto bg-transparent  "
                   >
                     Filter Brand <ChevronDown className="ml-2 h-4 w-4 " />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="bg-[#190700] text-white p-2.5 border-[#FF4500]"
+                  className="bg-[#F2F4F8]  p-2.5 "
                 >
                   {brands?.map((brand) => (
                     <DropdownMenuItem
@@ -151,14 +151,14 @@ const Products = () => {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    className="ml-auto bg-transparent text-white border-[#FF4500]"
+                    className="ml-auto bg-transparent  "
                   >
                     Filter Price <ChevronDown className="ml-2 h-4 w-4 " />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="bg-[#190700] text-white p-2.5 border-[#FF4500]"
+                  className="bg-[#F2F4F8]  p-2.5 "
                 >
                   {priceSort.map((price) => (
                     <DropdownMenuItem
@@ -191,14 +191,14 @@ const Products = () => {
 
           <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
             {data?.data?.length === 0 ? (
-              <p className="col-span-5 text-center text-white flex justify-center items-center min-h-[80vh] text-xl">
+              <p className="col-span-5 text-center  flex justify-center items-center min-h-[80vh] text-xl">
                 Product not available.
               </p>
             ) : (
               data?.data?.map((product: TProduct) => (
                 <div key={product._id}>
                   <Link to={`/single-product/${product?._id}`}>
-                    <Card className="bg-[#120500] text-white border-[#FF4500]">
+                    <Card className="bg-[#FFF]  ">
                       <CardContent className="p-0">
                         <div className="grid w-full items-center gap-4  p-2">
                           <div className="flex flex-col space-y-1.5">

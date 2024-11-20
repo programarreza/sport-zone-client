@@ -11,11 +11,7 @@ const NavbarMenu = () => {
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button
-            variant="outline"
-            color="#000"
-            className="text-white bg-[#0B0B30]"
-          >
+          <Button variant="outline" color="#000" className=" bg-[#0B0B30]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -32,7 +28,7 @@ const NavbarMenu = () => {
             </svg>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-[#0B0B30] text-white p-4">
+        <DropdownMenuContent className="bg-[#0B0B30]  p-4">
           {/* <DropdownMenuSeparator /> */}
           <NavbarLinks />
         </DropdownMenuContent>

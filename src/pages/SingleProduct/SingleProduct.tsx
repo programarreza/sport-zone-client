@@ -24,7 +24,7 @@ const SingleProduct = () => {
   };
 
   return (
-    <div className="bg-[#190700] text-white min-h-screen pt-4 md:pt-20">
+    <div className="bg-[#F2F4F8]  min-h-screen pt-4 md:pt-20">
       <Container>
         <div>
           {isLoading && <Loading />}
@@ -77,14 +77,14 @@ const SingleProduct = () => {
                     e.stopPropagation();
                     handleAddToCart(product);
                   }}
-                  className="bg-[#b33000] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg"
+                  className="bg-[#b33000]  font-semibold py-2 px-4 rounded-lg hover:bg-[#ff4500] transition duration-300 shadow-md hover:shadow-lg"
                 >
                   Add to Cart
                 </Button>
               ) : (
                 <Button
                   disabled
-                  className="bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-800 hover:text-white transition duration-300 shadow-md hover:shadow-lg"
+                  className="bg-white text-black font-semibold py-2 px-4 rounded-lg hover:bg-gray-800 hover: transition duration-300 shadow-md hover:shadow-lg"
                 >
                   Add to Cart
                 </Button>

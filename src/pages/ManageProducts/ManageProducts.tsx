@@ -65,8 +65,8 @@ const ManageProducts = () => {
         confirmButtonText: "Yes, delete it!",
         width: "350px",
         customClass: {
-          popup: "bg-[#120500] text-white border border-[#FF4500]",
-          title: "text-white",
+          popup: "bg-[#FFF]  border ",
+          title: "",
         },
       }).then((result) => {
         if (result.isConfirmed) {
@@ -77,8 +77,8 @@ const ManageProducts = () => {
             icon: "success",
             width: "350px",
             customClass: {
-              popup: " bg-[#120500]  text-white ",
-              title: "text-white",
+              popup: " bg-[#FFF]   ",
+              title: "",
             },
           });
         }
@@ -159,10 +159,7 @@ const ManageProducts = () => {
           >
             <AiFillDelete size={26} color="#C70000" />
           </Button>
-          <Button
-            variant="ghost"
-            className=" w-10 p-0"
-          >
+          <Button variant="ghost" className=" w-10 p-0">
             <UpdateProduct id={row.original._id} />
           </Button>
         </div>
@@ -199,7 +196,7 @@ const ManageProducts = () => {
   }
 
   return (
-    <div className="bg-[#190700] text-white min-h-screen">
+    <div className="bg-[#F2F4F8]  min-h-screen">
       <Container>
         {isLoading && <Loading />}
         <div className="w-full">
@@ -212,22 +209,19 @@ const ManageProducts = () => {
               onChange={(event) =>
                 table.getColumn("name")?.setFilterValue(event.target.value)
               }
-              className="max-w-sm bg-transparent text-white hidden md:flex border-[#FF4500] "
+              className="max-w-sm bg-transparent  hidden md:flex  "
             />
 
             <div className="flex justify-between items-center w-full gap-16 md:gap-0">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="ml-auto bg-transparent border-[#FF4500]"
-                  >
+                  <Button variant="outline" className="ml-auto bg-transparent ">
                     Filter Category <ChevronDown className="ml-2 h-4 w-4 " />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="bg-[#190700] text-white p-2.5 border-[#FF4500]"
+                  className="bg-[#F2F4F8]  p-2.5 "
                 >
                   {categories.map((category: any) => (
                     <DropdownMenuItem
@@ -255,14 +249,14 @@ const ManageProducts = () => {
               </div>
             </div>
           </div>
-          <div className="rounded-md border border-[#FF4500]">
-            <Table className="border-[#FF4500]">
-              <TableHeader className="border-[#FF4500]">
+          <div className="rounded-md border ">
+            <Table className="">
+              <TableHeader className="">
                 {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id} className="border-[#FF4500]">
+                  <TableRow key={headerGroup.id} className="">
                     {headerGroup.headers.map((header) => {
                       return (
-                        <TableHead key={header.id} className="border-[#FF4500]">
+                        <TableHead key={header.id} className="">
                           {header.isPlaceholder
                             ? null
                             : flexRender(
@@ -275,11 +269,11 @@ const ManageProducts = () => {
                   </TableRow>
                 ))}
               </TableHeader>
-              <TableBody className="border-[#FF4500]">
+              <TableBody className="">
                 {table.getRowModel().rows?.length ? (
                   table.getRowModel().rows.map((row) => (
                     <TableRow
-                      className="border-[#FF4500]"
+                      className=""
                       key={row.id}
                       data-state={row.getIsSelected() && "selected"}
                     >
@@ -294,7 +288,7 @@ const ManageProducts = () => {
                     </TableRow>
                   ))
                 ) : (
-                  <TableRow className="border-[#FF4500]">
+                  <TableRow className="">
                     <TableCell
                       colSpan={columns.length}
                       className="h-24 text-center"
@@ -315,7 +309,7 @@ const ManageProducts = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-[#5969FF] bg-transparent border-[#FF4500] hover:text-white"
+                className="hover:bg-[#5969FF] bg-transparent  hover:"
                 onClick={() => table.previousPage()}
                 disabled={!table.getCanPreviousPage()}
               >
@@ -324,7 +318,7 @@ const ManageProducts = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-[#5969FF] bg-transparent border-[#FF4500] hover:text-white"
+                className="hover:bg-[#5969FF] bg-transparent  hover:"
                 onClick={() => table.nextPage()}
                 disabled={!table.getCanNextPage()}
               >
